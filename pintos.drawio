@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-02-23T06:27:57.785Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="oD8SQOwdu60-c5GIxIKK" version="23.1.6" type="github">
+<mxfile host="app.diagrams.net" modified="2024-02-25T06:01:40.094Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="l386TJCZp63SPDwuMIKW" version="23.1.6" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="738" dy="1072" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -7,7 +7,7 @@
         <mxCell id="FCGbuUScSJxh_kCyRAzt-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="FCGbuUScSJxh_kCyRAzt-1" target="FCGbuUScSJxh_kCyRAzt-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="FCGbuUScSJxh_kCyRAzt-1" value="threads" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+        <mxCell id="FCGbuUScSJxh_kCyRAzt-1" value="threads/init.c" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="74" y="173" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="FCGbuUScSJxh_kCyRAzt-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="FCGbuUScSJxh_kCyRAzt-2" target="FCGbuUScSJxh_kCyRAzt-4" edge="1">
@@ -191,32 +191,44 @@
         <mxCell id="FCGbuUScSJxh_kCyRAzt-68" value="set BSS to all 0s" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="156" y="452" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FCGbuUScSJxh_kCyRAzt-69" value="thread.c" style="whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="496" y="427" width="120" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="FCGbuUScSJxh_kCyRAzt-71" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="521" y="559" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="evXNw3xsBenlblHK8Nxz-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="evXNw3xsBenlblHK8Nxz-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="103.5" y="3604" width="120" height="732" as="geometry" />
         </mxCell>
-        <mxCell id="evXNw3xsBenlblHK8Nxz-2" value="thread(cur)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="evXNw3xsBenlblHK8Nxz-2" value="thread(cur)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="103.5" y="3682" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="evXNw3xsBenlblHK8Nxz-3" value="page" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="evXNw3xsBenlblHK8Nxz-3" value="page" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="223.5" y="3682" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="evXNw3xsBenlblHK8Nxz-5" value="current_thread" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=36;position=0.14;position2=0;" vertex="1" parent="1">
+        <mxCell id="evXNw3xsBenlblHK8Nxz-5" value="current_thread" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=36;position=0.14;position2=0;" parent="1" vertex="1">
           <mxGeometry x="217" y="3702" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="evXNw3xsBenlblHK8Nxz-6" value="thread(next)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="evXNw3xsBenlblHK8Nxz-6" value="thread(next)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="103.5" y="3834" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="evXNw3xsBenlblHK8Nxz-7" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" target="evXNw3xsBenlblHK8Nxz-6">
+        <mxCell id="evXNw3xsBenlblHK8Nxz-7" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" parent="1" target="evXNw3xsBenlblHK8Nxz-6" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="337" y="3896" as="sourcePoint" />
             <mxPoint x="414" y="3958" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="oeegqw06y8uUcV3aV6wq-1" value="threads/thread.c" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="461" y="340" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="oeegqw06y8uUcV3aV6wq-3" value="- thread" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="oeegqw06y8uUcV3aV6wq-1">
+          <mxGeometry x="14" y="55" width="59" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="oeegqw06y8uUcV3aV6wq-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="oeegqw06y8uUcV3aV6wq-4" target="oeegqw06y8uUcV3aV6wq-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oeegqw06y8uUcV3aV6wq-4" value="threads/thread.h" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="448" y="86" width="223" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="oeegqw06y8uUcV3aV6wq-5" value="struct thread&lt;br&gt;{&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- tid: thread_id&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- status: state&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- name&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- stack: *uint8_t (saved stack ptr)&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- priority: int&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- allelewm: all threads list&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- elem: list element&lt;br&gt;}" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="oeegqw06y8uUcV3aV6wq-4">
+          <mxGeometry x="4" y="33" width="219" height="156" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
