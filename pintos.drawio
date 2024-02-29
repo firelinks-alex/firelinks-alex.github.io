@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-29T11:28:49.247Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="PnqnK95tLKpWBUzirSFD" version="23.1.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-02-29T11:30:34.542Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="-BRpmiipa1bCGrsMVJ4n" version="23.1.7" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="-303" dy="-3606" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="285" dy="-2751" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -744,8 +744,14 @@
             <mxPoint x="2822.4999999999995" y="5627.481436270255" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="OGEwMYndFThYUphkSW5q-142" style="edgeStyle=entityRelationEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="OGEwMYndFThYUphkSW5q-138" target="G287rVzxxnH9ejPlV_bV-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="OGEwMYndFThYUphkSW5q-138" value="thread_unblock(main)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="2753" y="5667" width="139" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OGEwMYndFThYUphkSW5q-141" value="main won&#39;t be runnable until&lt;br&gt;thread_unblock(main)&lt;br&gt;&lt;br&gt;this is how semaphore&lt;br&gt;maintains who can run next" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="3358" y="5215" width="212" height="151" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
