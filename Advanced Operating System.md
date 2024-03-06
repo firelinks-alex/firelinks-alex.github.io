@@ -1,22 +1,15 @@
-Pre-requisite:
+*Pre-requisite*:
 - Introduction to Computer Architecture
 - Knowing some amount of C
 - Some level of OS knowledge
 
-Structure:
+*Structure*:
 - 24 lectures
 
-Scoring:
+*Scoring*:
 - 70% projects (5 projects)
 - 15% mid-tewrm
 - 15% final
-
-To see and run
-- Run make
-- cd /build directory
-- run tests: make check
-- clean the /build: make clean
-- run single test case: make tests/threads/priority-donate-next.result VERBOSE=1
 
 # Introduction and Demos:
 ## Overview of Hardware, software, os and x86
@@ -27,12 +20,12 @@ To see and run
 - HW
 
 Purpose of an operating system:
-- abstract hardware for performance and flexibility
-- allow multiple users to run varietiy of application
-- multiple hardware resources between multiple applications and users
-- isolate applications
-- allow sharing among applications
-- provide high performance
+- **Abstract the hardware** for performance and flexibility
+- Allow **multiple users** to run varietiy of application
+- Multiple hardware resources between multiple applications and users
+- Isolate applications
+- Allow sharing among applications
+- Provide high performance
 
 You want isolation but you also want sharing which is contradictory. This is one of the chanllenges of designing a good operating system.
 
