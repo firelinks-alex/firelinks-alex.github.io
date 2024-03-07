@@ -13,31 +13,37 @@
 
 # Introduction and Demos:
 ## Overview of Hardware, software, os and x86
+What is an Opearating System:
+1. It is a **virtual machine** because it virtualizes the hardware and transforms them into a virtual form of them self so the programs can take advantage of it.
+2. It is a **standard library** because it provides APIs to run programs, access memory, and access devices.
+3. It is a **resource manager** because it manages hardware resource and make sure they get well-distributed to the applications using them.
 
-- Application
-- Libraries (printf/glibc)
-- OS
-- HW
+**Virtualization** is a technique to **devide** the computer resource logically. It is achieved by abstracting away the underlyinng complexity of resource segregation. For example, in concurrency, the computer divides CPU to multiple programs by schedulling them. It also divides phisical memory into virtual memory space so that every program thinks they have the exclusive usage of the entire memory.
+
+**Four themes of the textbook**:
+1. Virtualizing CPU
+2. Virtualizing Memory
+3. Concurrency
+4. Persistence: **file system**
 
 Purpose of an operating system:
 - **Abstract the hardware** for performance and flexibility
-- Allow **multiple users** to run varietiy of application
-- Multiple hardware resources between multiple applications and users
-- Isolate applications
-- Allow sharing among applications
+- Allow **multiple users** to run varietiy of application (Identity)
+- Multiple hardware resources between multiple applications and users (Concorrency)
+- Isolate applications/processes 
+- Allow sharing among applications (IPC)
 - Provide high performance
 
 You want isolation but you also want sharing which is contradictory. This is one of the chanllenges of designing a good operating system.
-
 
 Why study operating systems:
 - Very high performance on a hardware, extract the most performance of a hardware.
 - To beter understand what happens underneath the hood (understanding the principle)
 
-Abstractions provided by the OS:
-- for computation: process
-- for memory: address space
-- for storage: files
+**Abstractions** provided by the OS:
+- for computation: **processes**
+- for memory: **address space**
+- for storage: **files**
   
 Why is designing an os hard
 - must be efficient but also portable (more complex = more bugs)
@@ -46,42 +52,46 @@ Why is designing an os hard
 
 ## x86 architecture
 e.g. jaguard board
-How do you program the processor: x86 instruction set: the same series of 0s and 1s to the processors means different
+How do you program a processor?
 
-Abstract model: input/output <- CPU <-  Main memory (N words of B bits)
+**x86 instruction set**: the same series of 0s and 1s means different to a different processor.
+
+**Abstract model**: input/output <- CPU <-  Main memory (N words of B bits)
  
-Memory holds instructions and data (argument)
+A computer program is essentially a sequence of instructions operating on the arguments (data).
+Memory holds instructions and data.
 
-x86 implementation
-- EIP (external instruction pointer) is incremented after each instruction
-- Instructions have different length
-- EIP is modified by CALL, RET, JMP, and conditional JMP instructions
-
+**x86 implementation**
+- **EIP** (external instruction pointer) is incremented after each instruction completes
+- **Instructions have different length**
+- EIP is modified by **CALL**, **RET**, **JMP**, and **conditional JMP** instructions
 
 EFLAGs registers
 
-Registers are handled by compilers in the high level languages
-However, when our programs uses more data than the registers can handle we need to incorporate memories.
+**Registers are handled by compilers in the high level languages** so you don't have to manage them yourself. However, when our programs uses more data than a register file can handle we need to incorporate the main memory (DRAM).
 
-Memory instructions: MOV, PUSH, POP, etc
-Most instructions can take a memory address
+**main Memory instructions**: MOV, PUSH, POP, etc. Most instructions can take one memory address (1 byte)
 
-- register mode
-- immediate
-- direct
-- indirect (C pointer)
-- dispaced
+- `movl %eax, %edx`       | register mode: manipulation between two registers
+- `movl $0x123, %edx`     | immediate: move a value to the register (`edx`)
+-------------------------(slower)--------------------------------------
+- `movl 0x123, %edx`      | direct: move the value in the main memory address to the register `edx`
+- `movl (%ebx), %edx`     | indirect: treat the value in the `ebx` as an address and store the value in that address to the register `edx`
+- `movl 4(%ebx), %edx`    | dispaced: move from the ebx by 4 and treat the value there as an address, then fetch the value and store it in the register `edx`
 
-Stack memory + operations
+**Stack memory**
 
 What is a stack and why do we need it:
 There are different operations we want to do
 
 We have `main()` and `foo()`, We need to keep track of
-1. what function is under execution
-2. what is the written scope of a given function
+1. what function is under execution.
+2. what is the **scope** of a given function.
 
-```
+**Context of a function**: all the variables and arguments given to a function. It lives in the stack, a portion of the memory will be dedicated to hold the context.
+
+In the code below, when the funcion `foo()` executes `x++` it has to increment the variable `x` in the `foo()`'s context, not the `x` in the `main()`'s context.
+```c
 main() {
     x = 20;
     foo();
@@ -89,21 +99,91 @@ main() {
 
 foo() {
     x = 10;
-    x++;
 }
 ```
 
-Context for a function: all the variables and arguments given to the function
+Stack starts from a **higher address** and **grows lower** (downward). Everytime when a function call is made `%esp` grows smaller.
 
-It lives in a stack, a portion of a memory that holds the context of the function
+## Stack Registers:
+- **EIP**: (external instruction pointer): which instruction in this stack to execute the next.
+- **ESP**: (external stack pointer) : Initially located at the start of the stack region and grows downward as function calls. This register indicates **the location of the end of a stack**.
+- **EBP**: to solidify the start point (and the arguments of a function are located above the EBP)
+- **EAX**: to store the return value
 
-Stack starts from a higher and grows lower (downward): #1000 -> #900  
-which means every time you call a function the number(add) becomes smaller
+Stack memory operations:
+```asm
+Example instruction:        What it does:
+______________________________________________
+pushl %eax                  subl $4, %esp
+                            movl $eax, (%esp)
 
-- ESP: external stack pointer : where is the end of a stack
-- EBP solidify the start point (and the arguments of the function are located above the EBP)
+popl %eax                   movl (%esp), %eax
+                            addl $4, %esp
 
-Computer Systems Book:
+call 0x12345                pushl %eip(*)           # function call at addres 0x123
+                            movl $0x12345, %eip(*)
+
+ret                         popl %eip(*)
+```
+
+## 4. The Abstraction: The Process (Operating Systems Three Easy Pieces)
+**Virtualizing the CPU**: to create an illusion of there is infinit CPUs available to the processes.
+A basic technique to achieve this is: **time sharing** of the CPU.
+
+To implement the virtualization of the CPU the OS needs both **low level machinery mechanisms** and **high level algorithms policies**.
+- Mechanisms (How to): low-level methods or protocols that implement a piece of functionality. e.g. **context switch**
+- Policies (When to): high-level algorithms for making decisions. e.g. **shcedulling**
+
+### 4.1 The Abstraction: A Process
+A process consists of:
+- it's **machine statte**, e.g. `READY`, `RUNNING`, `BLOCKED`.
+- address space: the memory that the processor can address
+- context: program counter, stack pointer, frame pointer
+- I/O file: open file lists
+
+### 4.2 Process API
+OS often provides these process APIs
+- create
+- destroy
+- wait
+- miscellaneous controls:suspend and resume
+- status inquery
+
+### 4.3 How a process starts
+1. OS creates address space for the process and loads the program into the the space
+2. OS initialize the run-time stack.
+3. OS initialize the heap
+4. OS initialize I/Os including file descriptors
+5. Jump to the `main()` routine of the program
+6. Process starts
+
+### 4.4 Process States
+A process can have many states defined by an OS. A process transfers from a state to another state by schedulling or when certain event occurs in the system.
+
+### 4.5 Data Structures
+1. process list: all the processes
+2. register context: for context switching
+3. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Computer Systems Book:
 - Chapter 1: A fast introduction of the computer systems by tracing a simple "hello world" program.
 - Chapter 2: Computer Arithmetic 
 - Chapter 3: Assembly code (I32, x86-64)
