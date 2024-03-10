@@ -43,7 +43,7 @@ Why study operating systems:
 **Abstractions** provided by the OS:
 - for computation: **processes**
 - for memory: **address space**
-- for storage: **files**
+- for storage/IO: **files**
   
 Why is designing an os hard
 - must be efficient but also portable (more complex = more bugs)
@@ -132,13 +132,13 @@ A basic technique to achieve this is: **time sharing** of the CPU.
 
 To implement the virtualization of the CPU the OS needs both **low level machinery mechanisms** and **high level algorithms policies**.
 - Mechanisms (How to): low-level methods or protocols that implement a piece of functionality. e.g. **context switch**
-- Policies (When to): high-level algorithms for making decisions. e.g. **shcedulling**
+- Policies (which one): high-level algorithms for making decisions. e.g. **shcedulling**
 
 ### 4.1 The Abstraction: A Process
 A process consists of:
-- it's **machine statte**, e.g. `READY`, `RUNNING`, `BLOCKED`.
-- address space: the memory that the processor can address
-- context: program counter, stack pointer, frame pointer
+- **machine statte**: e.g. `READY`, `RUNNING`, `BLOCKED`.
+- **address space** (for holding its data): the memory that the processor can address
+- context: registers: e.g. program counter, stack pointer, frame pointer
 - I/O file: open file lists
 
 ### 4.2 Process API
@@ -152,10 +152,9 @@ OS often provides these process APIs
 ### 4.3 How a process starts
 1. OS creates address space for the process and loads the program into the the space
 2. OS initialize the run-time stack.
-3. OS initialize the heap
-4. OS initialize I/Os including file descriptors
-5. Jump to the `main()` routine of the program
-6. Process starts
+3. OS initialize I/Os including file descriptors
+4. Jump to the `main()` routine of the program
+5. Process starts
 
 ### 4.4 Process States
 A process can have many states defined by an OS. A process transfers from a state to another state by schedulling or when certain event occurs in the system.
@@ -163,11 +162,31 @@ A process can have many states defined by an OS. A process transfers from a stat
 ### 4.5 Data Structures
 1. process list: all the processes
 2. register context: for context switching
-3. 
+3. interrupt tables (IDT)
+4. system call table / trap table
+5. kernel code
+6. interrupt and exception handler
 
+These PCBs are normally stored in a **kernel's memory space**, a memory region exclusively created for the kernel and requires privileged access.
 
+## 6. Mechanism: Limited Direct Execution
+For virtualizing CPU, we employ the technique of **time-sharing the CPU**. For making the virtualization **efficient** (has a high performance), **secure** (checks the priviledge), and **flexible** (OS has the right to choose which program to run next), engineers has come up with **Limited Direct Control**.
 
+- Direct Control: the running process executes directly on the CPU.
+- Limited: user/kernel mode, kernel stack, trap table, system call, trap instruction
 
+### 6.1 Flow of limited direct execution:
+1. OS creates and saves the location of the **trap table**, a data structure that stores information of **trap->hander** mapping, somewhere in the CPU so that when a trap activates, the CPU know where to find the corresponding handler.
+2. OS creates the process by saving `args` and register values to the processes kernel stack.
+3. OS issues **return-from-trap** instruction so that hardware can restore the register valus from the kernel stack of the processor.
+4. The process issues system call, which is really a trap instruction
+5. CPU checks the **system call number** and saves the processes register information in its kernel stack, and jumps to the handler.
+6...
+
+### 6.2 How to implement scheudller
+#### 6.2.1 Cooperative approach: wait for system calls
+#### 6.2.2 Timer interrupt
+A timer device can be programmed to raise an interrupt every so many milliseonds; when the interrupt is raised, the currently running process is halted, and a pre-configured interrupt handler in the OS runs.
 
 
 
