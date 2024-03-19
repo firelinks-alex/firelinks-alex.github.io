@@ -1,41 +1,47 @@
 # Chapter 2. Introduction to Operating Systems (OS Basics)
 - **Von Neumann model**: the processor **fetches** an instruction from memory, **decodes** it, and **executes** it.
 - **Primary goal** of designing an OS: to make it correct, efficient, and easy to use.
-- **Virtualization** is a technique to divide a single physical resource to many virtual resources to create an illusion of infinite number of resources.
+- **Virtualization** is a technique to **divide a single physical resource** to many virtual resources to create an illusion to the programs programs of infinite number of resources.
 - An OS is
     1. a **virtual machine** because it virtualizes physical resources.
     2. a **standard library** because it provides easy-to-use APIs.
     3. a **resource manager** because it manages them in order to achieve efficientcy and security.
-- An OS virtualizes CPU by **time-sharing** the CPU between the processes, memory by creating a **virtual address space** for the process.
-- An OS does not virtualize the hard disk because processes may want to share data between each other.
+- An OS virtualizes CPU by **time-sharing** the CPU between the processes, and it virtualizes memory by creating a **private virtual address space** for each processes.
+- An OS **does not virtualize the hard disk** because it assumes the files are to be shared between multiple processes.
 - An OS introduces **system calls** to facilitate the ease of use and security.
-- Early OSs were just libraries to the underlying hardware system. Later it involved to include protection mechanism named **system calls** to transfer the control over the OS to access protected resources.
-- When a **system call** takes place the **trap instruction** set up in the **trap-handler** is actuated, transferring the control over the OS. And at the same time, raises the **privilege level** to **kernel mode**. Once the protected resource is accessed by the OS, it executes **return-from-trap** instruction to transfer the control back to the application, and at the same time, lowering the privilege level to **user mode**.
+- Early OS was nothing but a standard library that provides **procedure calls** to the processes. Later it involved to include protection mechanism named **system calls** to prevent the processes to again access to the protected resources
+- When a **system call** takes place the **trap instruction** set up in the hardware,  **trap-handler**, is actuated, transferring the control over the OS. And at the same time, raises the **privilege level** to the **kernel mode**. Once the protected resource is accessed by the OS, it executes **return-from-trap** instruction to transfer the control back to the application, and at the same time, lowering the privilege level to the **user mode**.
 - **multiprogramming**: multiple processes run simutenously in a computer.
-- With multiprogramming there comes **memory protection** mechanism of OS.
+- With multiprogramming there comes problems of **memory protection** and **concurrency**.
 
 # Chapter 4. The abstraction: the process
-- An OS implements **time-sharing** of CPU by employing both a low-level mechanism named **context-switch** and high-level algorithms named **schedulling policies**.
-- the things that constitute a process's **machine state**:
+- An OS implements **time-sharing** of CPU by employing both a **low-level mechanism** named **context-switch** and high-level algorithms named **schedulling policies**.
+- As a counterpart of **time-sharing**, we **space-sharing** that devices a physical resource into many pieces. For example, hard disk. Once a block is assigned to a file, it won't be assigned to another file until the file gets deleted.  
+- **mechanisms** are low-level methods/protocols that implement a functionality.
+- **policies** are algorithms that make some kind of decisions.
+- A process's **machine state** constitues the necessary parts to **descibe a process**:
     - **address space** (**memory**): the memory that the process can address. 
-    - registers (**CPU**): program counter, stack pointer, stack frame pointer etc.
-    - **I/O**: opened files
-- Process API is a set of tools an OS provides for creating, destroying, waiting, miscellaneous controls, and status inquery a process.
-- The steps needed for a OS to create process:
-    1. OS loads the program stored in a persistant storage like disk to the system memory.
-    2. OS initializes the run-time stack
+    - **registers** (**CPU**): program counter, stack pointer, stack frame pointer etc.
+    - **I/O devices**: opened files
+- **Process API** is a set of tools an OS provides for creating, destroying, waiting, miscellaneous controls, and status inquery a process.
+- How OS creates a process:
+    1. OS allocates a memory space for the process as its address space
+    2. OS loads the program text and data stored in a persistant storage like a disk to the program's address space.
+    3. OS initializes the run-time stack
     3. initializes heap and I/Os
-    4. jumps to the main() routine of the program
+    4. jumps to the main() routine of the program, and program starts
 - Process state:
     - **RUNNING**: this process is currently running.
     - **BLOCKED**: this process is blocked from running and needs some type of event to happen in order to schedule it again. 
     - **READY**: this process is ready to be schedulled.
-    - *zombie state: the process is existed but not cleaned up
+    - **zombie state**: the process is existed but not cleaned up
+- A Running process can be descheduled at any time, and a Ready process can be scheduled at any time. A Blocked process needs some type of event to occur in order to be scheduled again.
 - Data structures used for managing processes
-    1. process-list: all-list, blocked-list, ready-list
-    2. register context: to hold the registers of a processor, (aka. **PCB: process control block**):
+    1. **process-list**: all-list, blocked-list, ready-list
+    2. **register context**: to hold the registers of a process
+    3. **PCB: process control block**: start of memory, size of the memory, bottom of the kstack, context, state, parent, interrupt frame.
  
- Chapter 5. Process APIs
+ # Chapter 5. Process APIs
  - fork(): the parent process receives the PID of the child process. the child receives **ZERO**. The child process does not start from main(). **Instead, it starts from where it fork() was called**. However, it has its own address space, register files, and I/O list. The output of fork() is non-deterministic because either of them can be schedulled at anytime.
  - wait(): waits a process to **exit**.
  - exec()/execvp(): it runs the process specified in the argument. However, it overrides the code segment of the current process with the code of the the process. it's like swapping the process in a address space with another process.
@@ -47,18 +53,25 @@
 - **Limited** means an OS takes advantages of:
     1. **system calls** (Cooperative):
         - when a program initiates system call, it executes a **trap instruction**
-        - the trap instruction is handled by **trap handler** stored in the hardware in form of **trap table** (system-call number to handler mapping) during the boot process.
-        - the process is halted and OS takes over the control, pushing the processes register information in the **kernel stack**, a restricted region in the address space that can only be accesses in **kernel mode**.
-        -  once trap handler finishes the work, it executes **return-from-trap** instruction that pops the register information stored in the process's kernel stack and jumps to the where it was left off.
+        - A trap instruction is handled by a dedicated **trap handler**, and trap handlers are stored in the hardware by the kernel in form of **trap table** (system-call number to handler mapping) during the boot process.
+        - The processor pushes the processes' register information on to the **kernel stack** (in case of x86 processor), a restricted region in the address space that can only be accesses in **kernel mode**. At the same time, it resumes the OS's trap handler.
+        -  Once trap handler finishes the work, it executes **return-from-trap** instruction that pops the register information stored in the process's kernel stack and jumps to the where it was left off.
         - there is special system call: **yield** system call that does nothing but giving the control back to the OS.
     2. **Timer interrupt** (Non-Cooperative):
-        - OS initializes the timer device in the hardware to issue interrupt call every once a while.
-        - OS sets up timer **interrupt handler** in the **handler table**
-        - Timer ticks while other process executes, and interrupt signal gets received by the CPU.
-        - CPU initiates the handler, restoring the control back to the OS.
+        - OS initializes the timer device in the hardware to issue **interrupt call** every once a while.
+        - OS sets up timer, **interrupt handler** in the **handler table**
+        - Once timer ticks, the hardware store the registers in the kernel stack then invoke the interrupt handler.
 - After OS takes back the control:
     - the OS decides what process to run next based on the schedulling policies
     - while the OS executing the handler code, it may **disable the interrupt**, so it can finish whatever it's about to do. It enables the interrupt after it finishes the task.
+- How **context switch** works:
+    1. Process A is running
+    2. timmer interrupt/system call happens, the hardware saves the Process A's regsiters to its kstack(A), and invokes the trap handler giving control back to OS.
+    3. kernel saves the Process A's registers from its kstack(A) in a form of PCB in the kernel space.
+    5. Kernel restores the process B's registers from kernel space and points the **stack pointer** to the B's kstack(B).
+    6. OS issues **return-from-trap** instruction
+    7. the hardware pops the registers from the stack pointer it pointed to, which is kstack(B)
+    8. process B resumes.
 
 # Chapter 7. Schedulling
 
