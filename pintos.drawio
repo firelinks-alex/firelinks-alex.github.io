@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-04T18:39:33.005Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="uPjn7gITmmt6DV7Mfktw" version="24.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-04T18:48:12.544Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="3jrx7BieChp3clmixleS" version="24.0.7" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="1054" dy="-2869" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -63,7 +63,7 @@
           <mxGeometry x="1863" y="4792" width="73.33" height="88" as="geometry" />
         </mxCell>
         <mxCell id="G287rVzxxnH9ejPlV_bV-27" value="&lt;h1 style=&quot;font-size: 17px;&quot;&gt;thread_start()&lt;/h1&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;In this function, the &lt;b&gt;main &lt;/b&gt;thread first creates an &lt;b&gt;idle_semaphore &lt;/b&gt;for context switching with the idle thread.&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;Later,&amp;nbsp;&lt;b&gt;thread_create&lt;/b&gt;() will&amp;nbsp;put the idle thread into the &lt;b&gt;all_list &lt;/b&gt;and &lt;b&gt;ready_list &lt;/b&gt;by &lt;b&gt;init_thread&lt;/b&gt;() and &lt;b&gt;thread_unblock&lt;/b&gt;().&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;At the end of &lt;b&gt;thread_create(), &lt;/b&gt;the &lt;b&gt;main &lt;/b&gt;thread will &lt;b&gt;thread_yield&lt;/b&gt;() once allowing the idle thread to initialize itself.&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Once the idle thread comes to life it &lt;b&gt;thread_block&lt;/b&gt;() itself afterward, switching the control back to the main thread.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 17px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;This is how a context switch happens for the first time in PintOS.&lt;/span&gt;&lt;/div&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;strokeWidth=1;fontSize=17;" parent="1" vertex="1">
-          <mxGeometry x="1700" y="5373.5" width="342" height="413.5" as="geometry" />
+          <mxGeometry x="1653.73" y="5987" width="342" height="413.5" as="geometry" />
         </mxCell>
         <mxCell id="G287rVzxxnH9ejPlV_bV-30" value="&lt;h1 style=&quot;font-size: 17px;&quot;&gt;semaphore&lt;/h1&gt;&lt;div&gt;when a thread sema_down a semaphore that has a value of 0 it will be put to the &quot;sema-&amp;gt;waiter&quot; list and the thread is THREAD_BLOCKED.&lt;/div&gt;" style="text;html=1;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;strokeWidth=1;fontSize=17;" parent="1" vertex="1">
           <mxGeometry x="1756.16" y="4646" width="287" height="142" as="geometry" />
@@ -1087,6 +1087,23 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-19" value="initialize all_list" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DZNxHj8BBE2JOZL-p-y1-16">
+          <mxGeometry x="0.2271" y="-4" relative="1" as="geometry">
+            <mxPoint y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DZNxHj8BBE2JOZL-p-y1-8" target="G287rVzxxnH9ejPlV_bV-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1982" y="5787" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-20" value="initialize ready_list" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="DZNxHj8BBE2JOZL-p-y1-18">
+          <mxGeometry x="0.3137" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="DZNxHj8BBE2JOZL-p-y1-8" value="thread_init()" style="whiteSpace=wrap;html=1;fontSize=18;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1306" y="5757" width="196" height="60" as="geometry" />
         </mxCell>
@@ -1108,7 +1125,7 @@
         <mxCell id="DZNxHj8BBE2JOZL-p-y1-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DZNxHj8BBE2JOZL-p-y1-15" target="G287rVzxxnH9ejPlV_bV-14">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1663" y="6158" />
+              <mxPoint x="1639" y="6158" />
             </Array>
           </mxGeometry>
         </mxCell>
