@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-04T18:52:26.791Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="7nP1ij33H1HUtVFOuZnq" version="24.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-04T19:17:17.685Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="PIIRjEJykLTzKpZ743ie" version="24.0.7" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="642" dy="-3468" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -772,11 +772,6 @@
         <mxCell id="vxNm99UuLclVWzR72rs7-9" value="process_wait()" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="5717" y="4927" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="vxNm99UuLclVWzR72rs7-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="vxNm99UuLclVWzR72rs7-19" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="6794.000000000001" y="4957" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="vxNm99UuLclVWzR72rs7-11" value="process_execute(task)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="5917" y="4927" width="155" height="60" as="geometry" />
         </mxCell>
@@ -795,14 +790,8 @@
         <mxCell id="vxNm99UuLclVWzR72rs7-19" value="palloc_get_page(0)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="5898.5" y="5071" width="192" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="vxNm99UuLclVWzR72rs7-22" value="&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;palloc_get_multiple(0, 1)&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="6168" y="5067" width="204" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="vxNm99UuLclVWzR72rs7-25" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;palloc_get_page()&lt;/h1&gt;&lt;p&gt;gets a free page and returns its kernel virtual address.&amp;nbsp;&lt;/p&gt;&lt;p&gt;0 means get the page from the kernel pool and fill the pages with 0s&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="6162" y="4800" width="253" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="vxNm99UuLclVWzR72rs7-27" value="1 means get a single page&lt;div&gt;this function returns the starting&lt;/div&gt;&lt;div&gt;address of the page&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-          <mxGeometry x="6394" y="5127" width="254" height="142" as="geometry" />
+        <mxCell id="vxNm99UuLclVWzR72rs7-25" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;palloc_get_page(falgs)&lt;/h1&gt;&lt;div&gt;flags: how to allocate pages:&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- PAL_ASSERT = 0001, panic on failure&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- PAL_ZERO = 0010, zero page contents&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- PAL_USER = 0100, user page&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="5685" y="5169" width="281.5" height="120" as="geometry" />
         </mxCell>
         <mxCell id="vxNm99UuLclVWzR72rs7-28" value="page 4KB" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="6480" y="4758" width="200" height="200" as="geometry" />
@@ -1128,6 +1117,18 @@
         </mxCell>
         <mxCell id="DZNxHj8BBE2JOZL-p-y1-15" value="thread_start()" style="whiteSpace=wrap;html=1;fontSize=18;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="1306" y="6128" width="196" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-21" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;palloc_get_multiple(palloc_flags, page_cnt)&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="6149" y="5166" width="372" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vxNm99UuLclVWzR72rs7-19" target="vxNm99UuLclVWzR72rs7-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="6794.000000000001" y="4957" as="targetPoint" />
+            <mxPoint x="6091" y="5101" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vxNm99UuLclVWzR72rs7-22" value="&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;palloc_get_multiple(flags, 1)&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="5876" y="5327" width="237" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
