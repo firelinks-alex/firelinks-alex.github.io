@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-04T19:17:17.685Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="PIIRjEJykLTzKpZ743ie" version="24.0.7" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-04T19:22:12.105Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="9ag4c2guchYupy_ClBpA" version="24.0.7" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="642" dy="-3468" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -791,16 +791,16 @@
           <mxGeometry x="5898.5" y="5071" width="192" height="60" as="geometry" />
         </mxCell>
         <mxCell id="vxNm99UuLclVWzR72rs7-25" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;palloc_get_page(falgs)&lt;/h1&gt;&lt;div&gt;flags: how to allocate pages:&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- PAL_ASSERT = 0001, panic on failure&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- PAL_ZERO = 0010, zero page contents&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- PAL_USER = 0100, user page&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
-          <mxGeometry x="5685" y="5169" width="281.5" height="120" as="geometry" />
+          <mxGeometry x="5609" y="5048" width="281.5" height="120" as="geometry" />
         </mxCell>
         <mxCell id="vxNm99UuLclVWzR72rs7-28" value="page 4KB" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="6480" y="4758" width="200" height="200" as="geometry" />
+          <mxGeometry x="6714" y="4562" width="200" height="200" as="geometry" />
         </mxCell>
         <mxCell id="mZ80eUG4hNhJZhO70_sG-2" value="args-single noarg" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="vxNm99UuLclVWzR72rs7-28" vertex="1">
           <mxGeometry x="11" y="42" width="131" height="30" as="geometry" />
         </mxCell>
         <mxCell id="vxNm99UuLclVWzR72rs7-29" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #001080;&quot;&gt;fn_copy&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="6459" y="4725" width="61" height="33" as="geometry" />
+          <mxGeometry x="6693" y="4529" width="61" height="33" as="geometry" />
         </mxCell>
         <mxCell id="mZ80eUG4hNhJZhO70_sG-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mZ80eUG4hNhJZhO70_sG-4" target="mZ80eUG4hNhJZhO70_sG-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -1119,7 +1119,7 @@
           <mxGeometry x="1306" y="6128" width="196" height="60" as="geometry" />
         </mxCell>
         <mxCell id="DZNxHj8BBE2JOZL-p-y1-21" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;palloc_get_multiple(palloc_flags, page_cnt)&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="6149" y="5166" width="372" height="120" as="geometry" />
+          <mxGeometry x="5497" y="5222" width="372" height="120" as="geometry" />
         </mxCell>
         <mxCell id="DZNxHj8BBE2JOZL-p-y1-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vxNm99UuLclVWzR72rs7-19" target="vxNm99UuLclVWzR72rs7-22">
           <mxGeometry relative="1" as="geometry">
@@ -1127,8 +1127,26 @@
             <mxPoint x="6091" y="5101" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vxNm99UuLclVWzR72rs7-22" target="DZNxHj8BBE2JOZL-p-y1-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="vxNm99UuLclVWzR72rs7-22" value="&lt;div style=&quot;color: rgb(59, 59, 59); background-color: rgb(255, 255, 255); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;palloc_get_multiple(flags, 1)&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="5876" y="5327" width="237" height="60" as="geometry" />
+          <mxGeometry x="5876" y="5226" width="237" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DZNxHj8BBE2JOZL-p-y1-24" target="DZNxHj8BBE2JOZL-p-y1-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-24" value="acquire&lt;div&gt;pool-&amp;gt;lock&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="6213" y="5216" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-26" value="bitmap_scan_and_flip(map, 0, page_cnt, false)" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="6353" y="5226" width="294.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-28" value="kernel pool" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="6193" y="4920.5" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="DZNxHj8BBE2JOZL-p-y1-29" value="user pool" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="6443" y="4920.5" width="200" height="200" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
