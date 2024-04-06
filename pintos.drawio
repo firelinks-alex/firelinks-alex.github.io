@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-06T23:54:04.473Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="lY1Y-tZMeWlJxwK3iW3-" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-06T23:54:41.756Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="WvFMLzAM_Lg9rredIEW-" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="2063" dy="-3507" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -1418,8 +1418,8 @@
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-69" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;width=8.965517241379311;endSize=5.6689655172413795;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="147.43" y="6406.9" as="sourcePoint" />
-            <mxPoint x="147.43" y="6451.9" as="targetPoint" />
+            <mxPoint x="147.17000000000002" y="6414" as="sourcePoint" />
+            <mxPoint x="147.17000000000002" y="6459" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-71" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;width=8.965517241379311;endSize=5.6689655172413795;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
@@ -1460,8 +1460,8 @@
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-83" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;width=8.965517241379311;endSize=5.6689655172413795;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="148.5" y="6274.5" as="sourcePoint" />
-            <mxPoint x="148.93" y="6225.5" as="targetPoint" />
+            <mxPoint x="148.5" y="6257.75" as="sourcePoint" />
+            <mxPoint x="148.93" y="6208.75" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-84" value="(free)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#647687;fontColor=#ffffff;strokeColor=#314354;" vertex="1" parent="1">
@@ -1492,6 +1492,21 @@
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-93" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.cpu;" vertex="1" parent="1">
           <mxGeometry x="209" y="6234.099999999999" width="44.8" height="44.8" as="geometry" />
+        </mxCell>
+        <mxCell id="H90OjouN5mKhRpFJiGFX-95" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.011;entryY=0.771;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="H90OjouN5mKhRpFJiGFX-97" target="H90OjouN5mKhRpFJiGFX-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H90OjouN5mKhRpFJiGFX-96" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" vertex="1" parent="1">
+          <mxGeometry x="306" y="6449" width="106" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="H90OjouN5mKhRpFJiGFX-98" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="H90OjouN5mKhRpFJiGFX-66" target="H90OjouN5mKhRpFJiGFX-97">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="128" y="6404" as="sourcePoint" />
+            <mxPoint x="304" y="6454" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H90OjouN5mKhRpFJiGFX-97" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.cpu;" vertex="1" parent="1">
+          <mxGeometry x="202" y="6407.499999999999" width="44.8" height="44.8" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
