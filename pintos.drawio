@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-07T01:19:36.435Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="2_hQ184AAe7yyKpvtvSN" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-07T07:38:19.138Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="ufuL6BA-AlRu8YgM0JYx" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="2779" dy="-3606" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="2247" dy="-3606" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1816,8 +1816,8 @@
         <mxCell id="H90OjouN5mKhRpFJiGFX-205" value="proc1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="-541" y="7591" width="105.5" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="H90OjouN5mKhRpFJiGFX-206" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;kernel work&lt;/h1&gt;&lt;div&gt;1. find free slot in physical memory (free_list)&lt;/div&gt;&lt;div&gt;2. set the base and bound registers for the proc&lt;/div&gt;&lt;div&gt;3. load the proc to the memory&lt;/div&gt;&lt;div&gt;4.&amp;nbsp;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-412" y="7502" width="301" height="120" as="geometry" />
+        <mxCell id="H90OjouN5mKhRpFJiGFX-206" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;kernel work&lt;/h1&gt;&lt;div&gt;1. find free slot in physical memory (free_list)&lt;/div&gt;&lt;div&gt;2. set the base and bound registers for the proc&lt;/div&gt;&lt;div&gt;3. load the proc to the memory, and initialize stack, heap..&lt;/div&gt;&lt;div&gt;4. clean up the memory when proc is finished and put the memory back to the free_list&lt;/div&gt;&lt;div&gt;5. save and restore BASE, BOUND registers when context switches take place&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-412" y="7502" width="349" height="168" as="geometry" />
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-207" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;" vertex="1" parent="1">
           <mxGeometry x="-828" y="7448" width="50" height="49" as="geometry" />
