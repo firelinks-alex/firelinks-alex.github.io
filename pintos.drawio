@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-07T21:08:25.798Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="nkVOgTEN6Gy8c6PtUujj" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-07T22:47:13.530Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="_BH-EAcKcDEaeEw9e6TS" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="1433" dy="-3593" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="2476" dy="-3483" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1197,7 +1197,7 @@
           <mxGeometry x="6200.5" y="5462.75" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="DZNxHj8BBE2JOZL-p-y1-42" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #001080;&quot;&gt;free_end = (&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 16, 128);&quot;&gt;init_ram_pages&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;*&lt;/span&gt; &lt;span style=&quot;color: rgb(0, 0, 255);&quot;&gt;PGSIZE)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="6413.25" y="5040.25" width="190" height="41" as="geometry" />
+          <mxGeometry x="6413.25" y="5040.25" width="291.75" height="41" as="geometry" />
         </mxCell>
         <mxCell id="DZNxHj8BBE2JOZL-p-y1-43" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -2022,6 +2022,15 @@
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-274" value="For example, lets assume for a given address space:&lt;div&gt;- code starts from 0K&lt;/div&gt;&lt;div&gt;- heap starts from 20K&lt;/div&gt;&lt;div&gt;- stack starts from 64K&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;virtual address 900 = physical address 900 + 20K&lt;/div&gt;&lt;div&gt;virtual address 23500 = physical address (23500 - 20K) + 38K&lt;/div&gt;&lt;div&gt;virtual address 53000 = physical address 52K + (64K-53000)&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="6" y="8250" width="400" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="H90OjouN5mKhRpFJiGFX-275" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="H90OjouN5mKhRpFJiGFX-29">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="6470" y="5185" as="sourcePoint" />
+            <mxPoint x="6520" y="5222" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H90OjouN5mKhRpFJiGFX-276" value="4GB - phys_base" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="6531" y="5209.25" width="111" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
