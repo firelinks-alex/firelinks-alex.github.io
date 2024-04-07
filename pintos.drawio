@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-07T20:45:19.584Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="mztt9mOfsHCdVKn-0lEL" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-07T20:45:29.002Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="EPxFDvNHEhw39sJZWK1F" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="1433" dy="-3593" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="1336" dy="-3727" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2018,7 +2018,7 @@
           <mxGeometry x="489.16" y="7986" width="183.84" height="10" as="geometry" />
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-273" value="Segment table:&lt;div&gt;- All address spaces start from address 0.&lt;/div&gt;&lt;div&gt;- &lt;b&gt;physical address = segment_base + segment_offset&lt;/b&gt;&lt;/div&gt;&lt;div&gt;- segment_offset = virtual address - segment start virtual address&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="6" y="8183" width="377" height="120" as="geometry" />
+          <mxGeometry x="6" y="8183" width="377" height="76" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
