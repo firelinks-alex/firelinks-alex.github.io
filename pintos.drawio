@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-07T20:47:08.658Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="d1_Ydvr8Ahv72y6mpsBx" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-07T20:47:56.279Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="mFJAC08xWVZpoH4kCpfk" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="1336" dy="-3727" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -2021,7 +2021,7 @@
           <mxGeometry x="6" y="8183" width="377" height="76" as="geometry" />
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-274" value="For example, lets assume in a given virtual space:&lt;div&gt;- code starts from 0K&lt;/div&gt;&lt;div&gt;- heap starts from 20K&lt;/div&gt;&lt;div&gt;- stack starts from 64K&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry y="8254" width="354" height="120" as="geometry" />
+          <mxGeometry x="6" y="8250" width="281" height="73" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
