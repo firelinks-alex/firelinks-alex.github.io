@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-07T21:07:56.556Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="FT4eo6E62Zf8SgnwkZja" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-07T21:08:25.798Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="nkVOgTEN6Gy8c6PtUujj" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="1336" dy="-3727" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="1433" dy="-3593" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2017,11 +2017,11 @@
         <mxCell id="H90OjouN5mKhRpFJiGFX-271" value="" style="line;strokeWidth=2;html=1;" vertex="1" parent="1">
           <mxGeometry x="489.16" y="7986" width="183.84" height="10" as="geometry" />
         </mxCell>
-        <mxCell id="H90OjouN5mKhRpFJiGFX-273" value="Segment table:&lt;div&gt;- All address spaces start from address 0.&lt;/div&gt;&lt;div&gt;- &lt;b&gt;physical address = segment_base + segment_offset&lt;/b&gt;&lt;/div&gt;&lt;div&gt;- segment_offset = virtual address - segment start virtual address&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+        <mxCell id="H90OjouN5mKhRpFJiGFX-273" value="Segment table:&lt;div&gt;- All address spaces start from address 0.&lt;/div&gt;&lt;div&gt;- &lt;b&gt;physical address = segment_base + &lt;font color=&quot;#ff0000&quot;&gt;segment_offset&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;- &lt;b&gt;segment_offset &lt;/b&gt;= virtual address - segment start virtual address&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="6" y="8183" width="377" height="76" as="geometry" />
         </mxCell>
         <mxCell id="H90OjouN5mKhRpFJiGFX-274" value="For example, lets assume for a given address space:&lt;div&gt;- code starts from 0K&lt;/div&gt;&lt;div&gt;- heap starts from 20K&lt;/div&gt;&lt;div&gt;- stack starts from 64K&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;virtual address 900 = physical address 900 + 20K&lt;/div&gt;&lt;div&gt;virtual address 23500 = physical address (23500 - 20K) + 38K&lt;/div&gt;&lt;div&gt;virtual address 53000 = physical address 52K + (64K-53000)&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="6" y="8250" width="400" height="166" as="geometry" />
+          <mxGeometry x="6" y="8250" width="400" height="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
