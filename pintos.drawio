@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-12T23:15:04.729Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="xpoKDRGC0bqSgiIl_KCA" version="24.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-12T23:17:52.731Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="uCihNNgxyb9Mn678A5nZ" version="24.2.3" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="2029" dy="-3754" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="2279" dy="-3618" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2221,8 +2221,28 @@
         <mxCell id="KvAOpdfTm1CljlFMPOXF-47" value="0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="7097" y="5599.5" width="27" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="KvAOpdfTm1CljlFMPOXF-48" value="0" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-48" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="7138" y="5599" width="27" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-49" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;bitmap_scan_and_flip&lt;/span&gt; (&lt;span style=&quot;color: #001080;&quot;&gt;pool&lt;/span&gt;-&amp;gt;&lt;span style=&quot;color: #001080;&quot;&gt;used_map&lt;/span&gt;, &lt;span style=&quot;color: #098658;&quot;&gt;0&lt;/span&gt;, &lt;span style=&quot;color: #001080;&quot;&gt;page_cnt&lt;/span&gt;, &lt;span style=&quot;color: #0000ff;&quot;&gt;false&lt;/span&gt;);&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7006.5" y="5638" width="462" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-50" value="from 0th elem" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="7259" y="5706" width="96" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KvAOpdfTm1CljlFMPOXF-50">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="7307" y="5668" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-52" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #795e26;&quot;&gt;bitmap_set_multiple&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; (&lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;b&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;idx&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;cnt&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;!&lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;value&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;);&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7131.503506599195" y="5748.498872625178" width="351" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="KvAOpdfTm1CljlFMPOXF-53" target="KvAOpdfTm1CljlFMPOXF-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-53" value="in use" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="7103.5" y="5545" width="96" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
