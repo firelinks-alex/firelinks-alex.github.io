@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-12T23:34:24.187Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="ffbDQQsnzt0TPf2qdWEp" version="24.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-12T23:39:51.056Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="wGo8usEbnp_YippsXfY0" version="24.2.3" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="2029" dy="-3754" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="2279" dy="-3618" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2256,8 +2256,8 @@
         <mxCell id="KvAOpdfTm1CljlFMPOXF-59" value="user_frame is a bitmap for tracking frames" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="7960" y="6586" width="229" height="29" as="geometry" />
         </mxCell>
-        <mxCell id="KvAOpdfTm1CljlFMPOXF-60" value="frame table is a hash table:&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;frame -&amp;gt; hash" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="8135.5" y="6630.9" width="246.5" height="29" as="geometry" />
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-60" value="frame table is a hash table:&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;frame -&amp;gt; hash_elem" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="8135.5" y="6630.9" width="315.5" height="29" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
