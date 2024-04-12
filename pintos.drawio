@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-12T21:59:01.587Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="kgjrYZ1u91UaUmEjf8sG" version="24.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-12T21:59:59.395Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="xU9oQN9cX_7Xe93JyHVL" version="24.2.3" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="2125" dy="-3702" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="2371" dy="-3567" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2050,7 +2050,7 @@
         <mxCell id="dkiuZSO2qmUJmF_lflzm-17" value="kernel_pool {&lt;div&gt;lock&lt;/div&gt;&lt;div&gt;used_map&lt;/div&gt;&lt;div&gt;base&lt;/div&gt;&lt;div style=&quot;&quot;&gt;}&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="7548" y="4443" width="87" height="84" as="geometry" />
         </mxCell>
-        <mxCell id="dkiuZSO2qmUJmF_lflzm-18" value="bitmap" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-18" value="used_map" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="7047" y="4702.5" width="69" height="13" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-21" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
@@ -2059,7 +2059,7 @@
         <mxCell id="dkiuZSO2qmUJmF_lflzm-22" value="init_ram_pages = 992" style="text;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="7811" y="4836" width="149" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="dkiuZSO2qmUJmF_lflzm-23" value="bitmap" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-23" value="used_map" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="7047" y="4595" width="69" height="13" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-24" value="page_directory" style="rounded=0;whiteSpace=wrap;html=1;fontSize=7;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
