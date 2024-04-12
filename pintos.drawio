@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-12T02:21:28.470Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="OLj7EeZ2J9lgTbUyjxZh" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-12T02:49:29.684Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="YtzKSKWRhnEnQM4QcMaB" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="1973" dy="-3785" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -2020,6 +2020,9 @@
         <mxCell id="dkiuZSO2qmUJmF_lflzm-1" value="init.c" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="7375" y="4710.5" width="219" height="71.5" as="geometry" />
         </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dkiuZSO2qmUJmF_lflzm-2" target="dkiuZSO2qmUJmF_lflzm-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-2" value="palloc.c / palloc_init()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="7375" y="4862" width="219" height="71.5" as="geometry" />
         </mxCell>
@@ -2051,7 +2054,7 @@
           <mxGeometry x="7156" y="4728.5" width="69" height="13" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-19" value="0xc010 1000" style="text;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="7072" y="4707" width="92" height="36" as="geometry" />
+          <mxGeometry x="7071" y="4710.5" width="92" height="36" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-20" value="0xc0270000" style="text;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="7084.994127952939" y="4621.004658290318" width="93" height="36" as="geometry" />
@@ -2061,6 +2064,24 @@
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-22" value="init_ram_pages = 992" style="text;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="7242" y="4550" width="120" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-23" value="bitmap" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="7156" y="4621" width="69" height="13" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-24" value="page_directory" style="rounded=0;whiteSpace=wrap;html=1;fontSize=7;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="7156" y="4713" width="69" height="15.5" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dkiuZSO2qmUJmF_lflzm-25" target="dkiuZSO2qmUJmF_lflzm-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-25" value="paging_init()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7375" y="5013.5" width="219" height="71.5" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-27" value="falloc_init()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7375" y="5165" width="219" height="71.5" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-29" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;font color=&quot;#008000&quot;&gt;create page directory and populate page tables&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7609" y="5019" width="355" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
