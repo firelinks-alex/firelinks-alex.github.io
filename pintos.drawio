@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-08T19:41:12.991Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="fEPrTcKy1GdY04Lj2CHx" version="24.2.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-12T01:48:41.814Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="wwLZ3TIPaERpWN3u-MV4" version="24.2.2" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="2160" dy="-3683" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="1973" dy="-3785" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2008,11 +2008,35 @@
         <mxCell id="H90OjouN5mKhRpFJiGFX-276" value="4GB - phys_base" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="6531" y="5209.25" width="111" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="XvnTwaRPkRMNXP6uUKDP-1" value="user space" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XvnTwaRPkRMNXP6uUKDP-1" value="user space" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="5856" y="5306.25" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="XvnTwaRPkRMNXP6uUKDP-2" value="kernel&lt;div&gt;space&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XvnTwaRPkRMNXP6uUKDP-2" value="kernel&lt;div&gt;space&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="5856" y="5089.25" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dkiuZSO2qmUJmF_lflzm-1" target="dkiuZSO2qmUJmF_lflzm-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-1" value="init.c" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7375" y="4710.5" width="219" height="71.5" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-2" value="palloc.c / palloc_init()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7375" y="4862" width="219" height="71.5" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-4" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #008000;&quot;&gt;Page allocator. &amp;nbsp;Hands out memory in page-size (or&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp; &amp;nbsp;page-multiple) chunk&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7496.003520507813" y="4812.995366734096" width="413" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-5" value="&lt;div style=&quot;background-color: rgb(255, 255, 255); line-height: 19px;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(0, 16, 128); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; font-weight: normal; white-space: pre;&quot;&gt;user_page_limit = &lt;/span&gt;&lt;font face=&quot;Consolas, Courier New, monospace&quot; color=&quot;#001080&quot;&gt;&lt;span style=&quot;font-size: 14px; white-space: pre;&quot;&gt;4294967295&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="7235" y="4813" width="239" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="7156" y="4679" width="69" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-9" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="7156" y="4679" width="69" height="83" as="geometry" />
+        </mxCell>
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-10" value="3GB 0xc000000" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="7090" y="4748" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
