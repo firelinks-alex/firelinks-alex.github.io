@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-12T21:45:36.044Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="VxYLS2evoMbf0-_e4A8M" version="24.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-12T21:54:14.116Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="lnkjHqPskM6erPqjY3Ux" version="24.2.3" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="2371" dy="-3567" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -2042,10 +2042,10 @@
           <mxGeometry x="7107" y="4707" width="153.5" height="30" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-11" value="&lt;b&gt;free_start = 0xc010 0000&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="6885" y="4702.5" width="156" height="26" as="geometry" />
+          <mxGeometry x="6891" y="4700" width="156" height="26" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-16" value="kernel pages:367&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="7027.99" y="4463" width="113" height="26" as="geometry" />
+          <mxGeometry x="6814" y="4541" width="113" height="26" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-17" value="kernel_pool {&lt;div&gt;lock&lt;/div&gt;&lt;div&gt;used_map&lt;/div&gt;&lt;div&gt;base&lt;/div&gt;&lt;div style=&quot;&quot;&gt;}&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="7168" y="4469" width="87" height="84" as="geometry" />
@@ -2056,14 +2056,14 @@
         <mxCell id="dkiuZSO2qmUJmF_lflzm-19" value="0xc010 1000" style="text;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="6904" y="4629" width="92" height="36" as="geometry" />
         </mxCell>
-        <mxCell id="dkiuZSO2qmUJmF_lflzm-20" value="0xc0270000" style="text;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="6975.994127952939" y="4595.004658290318" width="93" height="36" as="geometry" />
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-20" value="C027 0000" style="text;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="6982.994127952939" y="4593.004658290318" width="93" height="36" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-21" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="7047" y="4494" width="69" height="114" as="geometry" />
         </mxCell>
-        <mxCell id="dkiuZSO2qmUJmF_lflzm-22" value="init_ram_pages = 992" style="text;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="7499" y="4830" width="120" height="26" as="geometry" />
+        <mxCell id="dkiuZSO2qmUJmF_lflzm-22" value="init_ram_pages = 992" style="text;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="7811" y="4836" width="149" height="26" as="geometry" />
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-23" value="bitmap" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="7047" y="4595" width="69" height="13" as="geometry" />
@@ -2085,6 +2085,21 @@
         </mxCell>
         <mxCell id="dkiuZSO2qmUJmF_lflzm-30" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp; &amp;nbsp;In a PDE, the physical address points to a page table.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #008000;&quot;&gt;&amp;nbsp; &amp;nbsp;In a PTE, the physical address points to a data or code page.&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="7610.995385393415" y="5249.004446236746" width="520" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-2" value="3E 0000 + PHYS_BASE = C03E 0000" style="text;whiteSpace=wrap;fontStyle=3;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="8057" y="4891.5" width="217" height="25.5" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-3" value="C03E 0000" style="text;whiteSpace=wrap;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="6982.997845734627" y="4479.996311232044" width="73" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-4" value="C010 0000" style="text;whiteSpace=wrap;fontStyle=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="7953" y="4877" width="92" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-6" value="2E 0000 (3,014,656) / 4096 = 736" style="text;whiteSpace=wrap;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="8057" y="4919" width="233" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-7" value="368" style="text;whiteSpace=wrap;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="7908" y="4941" width="48" height="22" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
