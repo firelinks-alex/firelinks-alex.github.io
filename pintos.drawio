@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-13T02:19:59.868Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="Fr8RF-oELF49WSUbdi41" version="24.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-13T02:28:01.283Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="g8s3x4m9417trq6SgLHU" version="24.2.3" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="2900" dy="-3277" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="2029" dy="-3754" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2273,6 +2273,36 @@
         </mxCell>
         <mxCell id="KvAOpdfTm1CljlFMPOXF-66" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; supp_page_entry&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;{&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;upage;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #267f99;&quot;&gt;tid_t&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; tid;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;enum&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; store_type type;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;enum&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; block_type block_type;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #267f99;&quot;&gt;block_sector_t&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; sector;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;*&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;filename;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;bool&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; writeable;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;off_t&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; offset;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;size_t&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; read_bytes;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;size_t&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; zero_bytes;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; hash_elem elem;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt;};&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="7320.004983653194" y="7446.500702435038" width="251" height="288" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-68" value="&lt;pre style=&quot;color: rgb(0, 0, 0); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 100; letter-spacing: normal; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt; 31                  22 21                  12 11                   0&#xa;+----------------------+----------------------+----------------------+&#xa;| Page Directory Index |   Page Table Index   |    Page Offset       |&#xa;+----------------------+----------------------+----------------------+&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="8473.003190174932" y="5936.998068263842" width="490" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-72" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="8505" y="5859" width="142" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-70" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=center;" vertex="1" parent="KvAOpdfTm1CljlFMPOXF-72">
+          <mxGeometry width="142" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-71" value="which page table?" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="KvAOpdfTm1CljlFMPOXF-72">
+          <mxGeometry x="30.5" y="33" width="81" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-73" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="8660" y="5859" width="142" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-74" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=center;" vertex="1" parent="KvAOpdfTm1CljlFMPOXF-73">
+          <mxGeometry width="142" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-75" value="which page?" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="KvAOpdfTm1CljlFMPOXF-73">
+          <mxGeometry x="30.5" y="33" width="81" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-76" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="8830" y="5860" width="142" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-77" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=center;" vertex="1" parent="KvAOpdfTm1CljlFMPOXF-76">
+          <mxGeometry width="142" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="KvAOpdfTm1CljlFMPOXF-78" value="which physical address?" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="KvAOpdfTm1CljlFMPOXF-76">
+          <mxGeometry x="30.5" y="33" width="81" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
