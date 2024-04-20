@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-14T07:47:55.225Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="x0AGDHlu9567hPMjm_-7" version="24.2.3" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-20T21:17:46.815Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="tLGAa3tSD_IOI9MKfpsQ" version="24.2.5" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
-    <mxGraphModel dx="2815" dy="-3324" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
+    <mxGraphModel dx="2900" dy="-3277" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2354,6 +2354,24 @@
         </mxCell>
         <mxCell id="-6Ow4rX65Tm1FPeaILP1-9" value="Read this&lt;div&gt;if you are thinking&lt;/div&gt;&lt;div&gt;about &quot;How about&lt;/div&gt;&lt;div&gt;the user virtual&lt;/div&gt;&lt;div&gt;addresses?&quot;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="9310" y="5969" width="274" height="173" as="geometry" />
+        </mxCell>
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-2" value="PintOS Filesys" style="rounded=1;whiteSpace=wrap;html=1;fontSize=50;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="8147.65" width="465" height="172" as="geometry" />
+        </mxCell>
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-3" value="struct file" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1877" y="8448" width="184" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-6" value="inode" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="ZLwg-UtcP8vVDKkbDDrp-3">
+          <mxGeometry y="23" width="184" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-10" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;bool&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;deny_write&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="ZLwg-UtcP8vVDKkbDDrp-3">
+          <mxGeometry x="-0.0008553413715617353" y="124.00055637525475" width="143" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-11" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #267f99;&quot;&gt;off_t&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;pos&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="ZLwg-UtcP8vVDKkbDDrp-3">
+          <mxGeometry x="0.0038830196494927804" y="82.99897205699563" width="105" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-4" value="an &lt;b&gt;open &lt;/b&gt;file" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="1740" y="8378" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
