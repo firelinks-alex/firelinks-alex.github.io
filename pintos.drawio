@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-20T22:46:31.789Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="zwDPOEsU_8Mk7yIYquDg" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-20T22:53:59.445Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="j_N4-KhrrAyhUDiK72f9" version="24.2.5" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="2422" dy="861" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -2361,7 +2361,7 @@
         <mxCell id="ZLwg-UtcP8vVDKkbDDrp-3" value="struct file" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="1877" y="8448" width="184" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-6" value="inode" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="ZLwg-UtcP8vVDKkbDDrp-3">
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-6" value="inode" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="ZLwg-UtcP8vVDKkbDDrp-3">
           <mxGeometry y="23" width="184" height="60" as="geometry" />
         </mxCell>
         <mxCell id="ZLwg-UtcP8vVDKkbDDrp-10" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;bool&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;deny_write&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="ZLwg-UtcP8vVDKkbDDrp-3">
@@ -2373,7 +2373,7 @@
         <mxCell id="ZLwg-UtcP8vVDKkbDDrp-4" value="an &lt;b&gt;open &lt;/b&gt;file" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
           <mxGeometry x="1740" y="8378" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-12" value="struct inode" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-12" value="struct inode" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="2218.5" y="8524" width="200" height="200" as="geometry" />
         </mxCell>
         <mxCell id="ZLwg-UtcP8vVDKkbDDrp-15" value="&lt;div style=&quot;color: #3b3b3b;background-color: #ffffff;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #267f99;&quot;&gt;list_elem&lt;/span&gt;&lt;span style=&quot;color: #3b3b3b;&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #001080;&quot;&gt;elem&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="ZLwg-UtcP8vVDKkbDDrp-12">
