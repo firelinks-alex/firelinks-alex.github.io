@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-04-21T06:24:41.691Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="EW47ey4tEl6BxXQpcZk0" version="24.2.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-21T06:25:20.876Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="sLo9rec74eMLBgWUEJ8C" version="24.2.5" type="github">
   <diagram name="Page-1" id="PcCjMO9r_Gs7wmwGxHoW">
     <mxGraphModel dx="2900" dy="-3277" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="1">
       <root>
@@ -2422,12 +2422,12 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="ZLwg-UtcP8vVDKkbDDrp-32" value="" style="group" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="2859" y="8622" width="86" height="288" as="geometry" />
+          <mxGeometry x="2874" y="8617" width="86" height="288" as="geometry" />
         </mxCell>
         <mxCell id="ZLwg-UtcP8vVDKkbDDrp-30" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;flipH=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;" parent="ZLwg-UtcP8vVDKkbDDrp-32" vertex="1">
           <mxGeometry width="20" height="288" as="geometry" />
         </mxCell>
-        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-31" value="512&amp;nbsp; bytes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;" parent="ZLwg-UtcP8vVDKkbDDrp-32" vertex="1">
+        <mxCell id="ZLwg-UtcP8vVDKkbDDrp-31" value="&lt;b&gt;512&amp;nbsp; bytes&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="ZLwg-UtcP8vVDKkbDDrp-32" vertex="1">
           <mxGeometry x="26" y="123.63636363636364" width="60" height="43.63636363636364" as="geometry" />
         </mxCell>
         <mxCell id="ZLwg-UtcP8vVDKkbDDrp-71" value="in-memory" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
