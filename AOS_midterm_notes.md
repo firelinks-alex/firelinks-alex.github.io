@@ -181,3 +181,29 @@ How TLB works:
 - Data structures that support **special locality** like an array benefits the most from TLB.
 - In a CISC hardware system, it's the hardware handles the **TLB miss**. **hardware-managed TLBs** uses **multi-level page table**
 - In a **RISC** hardware, OS handles it (software-managed TLBs) -> trap instructions
+
+
+Final Exam Topics:
+How is persistent memory different from solid state drives?
+
+What is DAX and why is it important for persistent memory?
+
+What is one disadvantage of persistent memory over DRAM?
+
+How is the OS able to give commands to hardware devices?
+
+What is one advantage the old tape storage has over modern storage drives?
+
+Why are Magnetic Hard drives still so popular?
+
+Name at least 3 roles of a file system, and explain why each is important.
+
+What is one important property that virtual machines provide that containers do not?
+
+Provide one use case each where a container and a virtual machine is the right virtualization technique to use.
+
+Define crash consistency as the OS relates to file systems. Give an example.
+
+What is the central idea of an Exokernel?
+
+What is one advantage a monolithic OS (like Linux) would have over an Exokernel?
