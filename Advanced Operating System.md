@@ -3,22 +3,21 @@
 - Knowing some amount of C
 - Some level of OS knowledge
 
-*Structure*:
-- 24 lectures
-
 *Scoring*:
 - 70% projects (5 projects)
 - 15% mid-tewrm
 - 15% final
 
 # Introduction and Demos:
-## Overview of Hardware, software, os and x86
-What is an Opearating System:
-1. It is a **virtual machine** because it virtualizes the hardware and transforms them into a virtual form of them self so the programs can take advantage of it.
+## Overview of Hardware, software, OS and x86
+**What is an Opearating System:** 
+
+in a sentence, it is a software that's responsible for making it easy to run programs, or even allowing many programs to run together at the same time, allowing them to share memory, interact with external devices, and fun all other stuff.
+1. It is a **virtual machine** because it **virtualizes** the hardware by transforming them into a easy-to-use virtual form of them self so the programs can share a physical resource together.
 2. It is a **standard library** because it provides APIs to run programs, access memory, and access devices.
 3. It is a **resource manager** because it manages hardware resource and make sure they get well-distributed to the applications using them.
 
-**Virtualization** is a technique to **devide** the computer resource logically. It is achieved by abstracting away the underlyinng complexity of resource segregation. For example, in concurrency, the computer divides CPU to multiple programs by schedulling them. It also divides phisical memory into virtual memory space so that every program thinks they have the exclusive usage of the entire memory.
+**Virtualization** is a technique to **divide** the physical resources logically. Operating system achieves this by abstracting away the underlyinng complexity of resource segregation. For example, in concurrency the operating system divides a CPU to multiple programs by time sharing. In memory management, operating system often divides a phisical memory into **virtual memory spaces** so that every program thinks they have the exclusive usage of the entire memory.
 
 **Four themes of the textbook**:
 1. Virtualizing CPU
@@ -26,30 +25,19 @@ What is an Opearating System:
 3. Concurrency
 4. Persistence: **file system**
 
-Purpose of an operating system:
+Purpose of an operating system (from the course recording):
 - **Abstract the hardware** for performance and flexibility
 - Allow **multiple users** to run varietiy of application (Identity)
 - Multiple hardware resources between multiple applications and users (Concorrency)
 - Isolate applications/processes 
-- Allow sharing among applications (IPC)
+- Allow sharing among applications (files, IPC...)
 - Provide high performance
-
-You want isolation but you also want sharing which is contradictory. This is one of the chanllenges of designing a good operating system.
-
-Why study operating systems:
-- Very high performance on a hardware, extract the most performance of a hardware.
-- To beter understand what happens underneath the hood (understanding the principle)
 
 **Abstractions** provided by the OS:
 - for computation: **processes**
 - for memory: **address space**
 - for storage/IO: **files**
   
-Why is designing an os hard
-- must be efficient but also portable (more complex = more bugs)
-- must be powerful but simple
-- feature interact: like forking a process and open files
-
 ## x86 architecture
 e.g. jaguard board
 How do you program a processor?
@@ -59,7 +47,7 @@ How do you program a processor?
 **Abstract model**: input/output <- CPU <-  Main memory (N words of B bits)
  
 A computer program is essentially a sequence of instructions operating on the arguments (data).
-Memory holds instructions and data.
+Memory holds both the instructions and data.
 
 **x86 implementation**
 - **EIP** (external instruction pointer) is incremented after each instruction completes
@@ -90,7 +78,7 @@ We have `main()` and `foo()`, We need to keep track of
 
 **Context of a function**: all the variables and arguments given to a function. It lives in the stack, a portion of the memory will be dedicated to hold the context.
 
-In the code below, when the funcion `foo()` executes `x++` it has to increment the variable `x` in the `foo()`'s context, not the `x` in the `main()`'s context.
+In the code below, when the funcion `foo()` executes `x++` it should increment the variable `x` in the `foo()`'s context, not the `x` in the `main()`'s context.
 ```c
 main() {
     x = 20;
@@ -107,7 +95,7 @@ Stack starts from a **higher address** and **grows lower** (downward). Everytime
 ## Stack Registers:
 - **EIP**: (external instruction pointer): which instruction in this stack to execute the next.
 - **ESP**: (external stack pointer) : Initially located at the start of the stack region and grows downward as function calls. This register indicates **the location of the end of a stack**.
-- **EBP**: to solidify the start point (and the arguments of a function are located above the EBP)
+- **EBP**: to solidify the start point of this stack frame (and the arguments of a function are located above the EBP)
 - **EAX**: to store the return value
 
 Stack memory operations:
@@ -126,9 +114,8 @@ call 0x12345                pushl %eip(*)           # function call at addres 0x
 ret                         popl %eip(*)
 ```
 
-## 4. The Abstraction: The Process (Operating Systems Three Easy Pieces)
-**Virtualizing the CPU**: to create an illusion of there is infinit CPUs available to the processes.
-A basic technique to achieve this is: **time sharing** of the CPU.
+## 4. The Abstraction: The Process (Operating Systems: Three Easy Pieces)
+**Virtualizing the CPU**: to create an illusion that the CPU is always  available to a process. A basic technique to achieve this is called **time sharing** of the CPU, where it executes a process's instructions for some amount of time and switch to execute the instructions of other processes.
 
 To implement the virtualization of the CPU the OS needs both **low level machinery mechanisms** and **high level algorithms policies**.
 - Mechanisms (How to): low-level methods or protocols that implement a piece of functionality. e.g. **context switch**
@@ -136,7 +123,7 @@ To implement the virtualization of the CPU the OS needs both **low level machine
 
 ### 4.1 The Abstraction: A Process
 A process consists of:
-- **machine statte**: e.g. `READY`, `RUNNING`, `BLOCKED`.
+- **machine state**: e.g. `READY`, `RUNNING`, `BLOCKED`.
 - **address space** (for holding its data): the memory that the processor can address
 - context: registers: e.g. program counter, stack pointer, frame pointer
 - I/O file: open file lists
