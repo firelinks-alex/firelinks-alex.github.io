@@ -8,7 +8,7 @@
 - 15% mid-tewrm
 - 15% final
 
-# Introduction and Demos:
+# 1. Introduction
 ## Overview of Hardware, software, OS and x86
 **What is an Opearating System:** 
 
@@ -91,19 +91,25 @@ call 0x12345                pushl %eip(*)           # function call at addres 0x
 ret                         popl %eip(*)
 ```
 
-## 4. The Abstraction: The Process (Operating Systems: Three Easy Pieces)
-**Virtualizing the CPU**: to create an illusion that the CPU is always  available to a process. A basic technique to achieve this is called **time sharing** of the CPU, where it executes a process's instructions for some amount of time and switch to execute the instructions of other processes.
+## The goal of designing a Operating System
+We want to design a operating system that is capable of taking physical resources and **virtualize** them. It handles concurrency issues so that multiple processes can run at the same time. It can store the files **persistantly**. While we are achieving these goals we also have to keep the following principles in mind:
+1. The operating system should provide enough abstractions to make the system easy-to-use.
+2. The OS should provide high performance, or minimize the overheads.
+3. The OS should provide protection between applications, as well between the OS and applications.
+4. The OS should provide high level degree of reliability (resiliency, fault-tolerant, error handling)
+5. Energy efficiency
+6. Security
+7. Portability
+
+## 2. The Abstraction: The Process (Operating Systems: Three Easy Pieces, Chapter 4)
+**Virtualizing the CPU**: to create an illusion that the CPU is always  available to a process. A basic technique to achieve this is called **time sharing** of the CPU, where it executes a process's instructions for some time and switch to execute the instructions of other processes.
 
 To implement the virtualization of the CPU the OS needs both **low level machinery mechanisms** and **high level algorithms policies**.
 - Mechanisms (How to): low-level methods or protocols that implement a piece of functionality. e.g. **context switch**
 - Policies (which one): high-level algorithms for making decisions. e.g. **shcedulling**
 
 ### 4.1 The Abstraction: A Process
-A process consists of:
-- **machine state**: e.g. `READY`, `RUNNING`, `BLOCKED`.
-- **address space** (for holding its data): the memory that the processor can address
-- context: registers: e.g. program counter, stack pointer, frame pointer
-- I/O file: open file lists
+The machine state of a process consists **memory**, **register**, and the **files** it's operating. The process' state changes when any of these element changes.
 
 ### 4.2 Process API
 OS often provides these process APIs
