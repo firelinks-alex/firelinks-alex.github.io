@@ -12,53 +12,31 @@
 ## Overview of Hardware, software, OS and x86
 **What is an Opearating System:** 
 
-in a sentence, it is a software that's responsible for making it easy to run programs, or even allowing many programs to run together at the same time, allowing them to share memory, interact with external devices, and fun all other stuff.
+in a sentence, it is a software that's responsible for making it easy to run programs, or even allowing many programs to run together at the same time, allowing them to share memory, interact with external devices, and do all other fun stuff.
+
+More specifically, 
 1. It is a **virtual machine** because it **virtualizes** the hardware by transforming them into a easy-to-use virtual form of them self so the programs can share a physical resource together.
 2. It is a **standard library** because it provides APIs to run programs, access memory, and access devices.
 3. It is a **resource manager** because it manages hardware resource and make sure they get well-distributed to the applications using them.
 
-**Virtualization** is a technique to **divide** the physical resources logically. Operating system achieves this by abstracting away the underlyinng complexity of resource segregation. For example, in concurrency the operating system divides a CPU to multiple programs by time sharing. In memory management, operating system often divides a phisical memory into **virtual memory spaces** so that every program thinks they have the exclusive usage of the entire memory.
+**Virtualization** is a technique to **divide** the physical resources logically. Operating system achieves this by **abstracting away** the underlyinng complexity of resource segregation. For example, in concurrency the operating system divides a CPU to multiple programs by time sharing. In memory management, operating system divides a phisical memory into **virtual memory spaces** so that every program thinks they have the exclusive usage of the entire memory.
 
-**Four themes of the textbook**:
+### Four themes of the textbook
 1. Virtualizing CPU
 2. Virtualizing Memory
 3. Concurrency
 4. Persistence: **file system**
 
-Purpose of an operating system (from the course recording):
-- **Abstract the hardware** for performance and flexibility
-- Allow **multiple users** to run varietiy of application (Identity)
-- Multiple hardware resources between multiple applications and users (Concorrency)
-- Isolate applications/processes 
-- Allow sharing among applications (files, IPC...)
-- Provide high performance
-
-**Abstractions** provided by the OS:
-- for computation: **processes**
-- for memory: **address space**
-- for storage/IO: **files**
-  
-## x86 architecture
-e.g. jaguard board
-How do you program a processor?
-
-**x86 instruction set**: the same series of 0s and 1s means different to a different processor.
-
-**Abstract model**: input/output <- CPU <-  Main memory (N words of B bits)
- 
-A computer program is essentially a sequence of instructions operating on the arguments (data).
-Memory holds both the instructions and data.
-
-**x86 implementation**
+## x86 implementation
 - **EIP** (external instruction pointer) is incremented after each instruction completes
 - **Instructions have different length**
-- EIP is modified by **CALL**, **RET**, **JMP**, and **conditional JMP** instructions
+- **EIP** is only modifiable via **CALL**, **RET**, **JMP**, and **conditional JMP** instructions
 
 EFLAGs registers
 
-**Registers are handled by compilers in the high level languages** so you don't have to manage them yourself. However, when our programs uses more data than a register file can handle we need to incorporate the main memory (DRAM).
+**Registers are handled by compilers in the high level languages** so you don't have to manage them yourself. When our programs uses more data than a register file can handle we need to incorporate the **main memory (DRAM)**.
 
-**main Memory instructions**: MOV, PUSH, POP, etc. Most instructions can take one memory address (1 byte)
+**Main Memory instructions**: MOV, PUSH, POP, etc. Most instructions can take one memory address (1 byte)
 
 - `movl %eax, %edx`       | register mode: manipulation between two registers
 - `movl $0x123, %edx`     | immediate: move a value to the register (`edx`)
@@ -67,14 +45,13 @@ EFLAGs registers
 - `movl (%ebx), %edx`     | indirect: treat the value in the `ebx` as an address and store the value in that address to the register `edx`
 - `movl 4(%ebx), %edx`    | dispaced: move from the ebx by 4 and treat the value there as an address, then fetch the value and store it in the register `edx`
 
-**Stack memory**
+## Stack memory
+What is a stack and why do we need it?
 
-What is a stack and why do we need it:
-There are different operations we want to do
-
-We have `main()` and `foo()`, We need to keep track of
+Let's say we have two functions:`main()` and `foo()` and we want to keep track of
 1. what function is under execution.
 2. what is the **scope** of a given function.
+in order to execute them correctly.
 
 **Context of a function**: all the variables and arguments given to a function. It lives in the stack, a portion of the memory will be dedicated to hold the context.
 
