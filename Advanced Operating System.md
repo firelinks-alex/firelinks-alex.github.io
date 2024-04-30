@@ -101,17 +101,48 @@ We want to design a operating system that is capable of taking physical resource
 6. Security
 7. Portability
 
-## 2. The Abstraction: The Process (Operating Systems: Three Easy Pieces, Chapter 4)
-**Virtualizing the CPU**: to create an illusion that the CPU is always  available to a process. A basic technique to achieve this is called **time sharing** of the CPU, where it executes a process's instructions for some time and switch to execute the instructions of other processes.
+# 2. The Abstraction: The Process (Operating Systems: Three Easy Pieces, Chapter 4)
+**Virtualizing the CPU**: to create an illusion that the CPU is always  available to a process. A basic technique to achieve this is called **time sharing** of the CPU, where it executes the instructions from a process for some time and switch to execute the instructions from other processes.
 
 To implement the virtualization of the CPU the OS needs both **low level machinery mechanisms** and **high level algorithms policies**.
 - Mechanisms (How to): low-level methods or protocols that implement a piece of functionality. e.g. **context switch**
 - Policies (which one): high-level algorithms for making decisions. e.g. **shcedulling**
 
-### 4.1 The Abstraction: A Process
-The machine state of a process consists **memory**, **register**, and the **files** it's operating. The process' state changes when any of these element changes.
+## 4.1 The Abstraction: A Process
+A process is the abstraction of the **machine state** of a running program. 
+the **machine state** of a process is something the program can read or update, it consists of **address space**, **registers**, and the **files** associated with the program. The process' state alters when any of those elements changes. This also means during a **context switch**, the machine state of a process has to be stored properly for later restoration.
 
-### 4.2 Process API
+The information about a process is stored in a data structure like the one below:
+```c
+struct context
+{
+    int eip;    // instruction pointer
+    int esp;    // stack pointer
+    int ebx;
+    int ecx;
+    int edx;
+    int esi;
+    int edi;
+    int ebp;    // stack base pointer
+}
+
+struct proc
+{
+    char* mem;  // start of process memory
+    unit sz;    //size of memory
+    
+    enum proc_state state;  // current process state
+    int pid;                // process id
+    strcut proc *parent;    // parent process
+    void *chan;             // if non-zero, sleeping on chan
+    int killed;             // if non-zero, have been killed
+    struct file *ofile[NOFILE]; // open files
+    struct inode *cwd;      // current dir
+    struct context context;
+    struct trapframe *tf    // trap frame for the current interrupt
+}
+```
+## 4.2 Process API
 OS often provides these process APIs
 - create
 - destroy
