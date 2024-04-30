@@ -181,15 +181,18 @@ For virtualizing CPU, we employ a technique called **time-sharing the CPU**. Thi
 **Limited Direct Control** is a technique that allowing a process to execute directly on the CPU (using the CPU directly) without interference from the kernel. It is *limited* because the kernel takes control of the CPU back once a while regardless of the process yields or not.
 
 ## 6.1 How to enforce access during Direct Control
-The access is enforced by introducing the **system calls**, **user mode** and **kernel mode**. While in the user mode, a process can not execute priviledged operations such as disk read/writes. Doing so will trigger an exception and the process will be terminated. The process has to issue a **system call** where a piece of the kernel code will check if the access is valid. If the access is indeed valid, the process' priviledge level will be raised to **kernel mode** and it will be allowed to perform I/O operations.
+The access is enforced by introducing **system calls**, **user mode** and **kernel mode**. While in the user mode, a process can not execute priviledged operations such as disk read/writes. Doing so will trigger exception and the process will be terminated. The process has to issue a **system call** and the execution will jump to a piece of kernel code that handles the system call. The handler usually first checks if the operation is valid for the process. If the access is indeed valid, the process' priviledge level will be raised to **kernel mode** where it can execute kernel instructions for disk operations.
 
-System calls are **trap instructions** that stops normal flow of a program and jumps into the kernel context. Note that this is different from a context switch where a program gets deschedulled and another process gets schedulled by the OS. By performing a trap instruction the user program will not be deschedulled. It will only jump to the kernel pre-prepared handlers and continue executing the kernel codes there.
+System calls is a subset of **trap instructions** that stops normal flow of a program and jumps to the kernel context. Note that this is different from a **context switch** where the operating system deschedules the running program and schedule another program. By performing a trap instruction the user program will not be deschedulled. It will only jump to one of the kernel pre-prepared handlers and continue executing the kernel codes written in the handler.
 
-When a trap instruction occurs, the program's state will be saved into a data structure named **trap frame** for later restoration. Then the program starts executing the code defined in the specific handler. Once it's complete, it execute a **return from trap (ret)** instruction that jumps to where the program was left off by restoring the saved trap frame.
+However, when a trap instruction occurs, the program's state has be like during a context switch in order to restore the program's normal flow. The data structure used for saving the state is called **trap frame**. After the save completes the program will start executing the code written in the specific handler. Once it finishes the execution it will issue a **return from trap (ret)** instruction that restores the program's original flow by looking up the saved trap frame and lowers the priviledge level to the user mode at the same time. 
 
+On x86 the trap frame is saved in the **kernel stack**, a per-process memory region that stores **kernel stack frames**. We will come back to this later when we discuss **address space** later.
 
-
-
+## 6.2 How OS can regain control?
+If a user program is occupying the CPU that means the OS is not running at the moment. Next problem is how to let OS regain control while a user program is running so it can schedule other processes. There are two approaches we could adopt:
+1. Cooperative: User programs `yield` to OS once while, may be when issuing a system call or when an exception is occured. Later the OS (again, the system call handler code) halts the user program and and schedule another program to run.
+2. Non-cooperative: the system utilizes external **hardware devices** like a **timer device** to issue an **timer interrupt** signal once a while. When the CPU receives such a signal it jumps to execute the pre-defined handler code (again, raising the program's priviledge level to kernel mode) and halts the user program to schedulle other programs. 
 
 
 
