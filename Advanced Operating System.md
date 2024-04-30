@@ -142,25 +142,30 @@ struct proc
     struct trapframe *tf    // trap frame for the current interrupt
 }
 ```
-## 4.2 Process API
-OS often provides these process APIs
-- create
-- destroy
-- wait
-- miscellaneous controls:suspend and resume
-- status inquery
+These data structures that employed by the OS to maintain the processes are called **Process Control Blocks (PCBs)**
 
-### 4.3 How a process starts
+## 4.2 Process API
+OS often provides APIs so the underlying programs can take advantage of them. These APIs include but not limited to the following categories:
+- process creation: `exec(), fork()`
+- process destruction: `kill()`
+- process synchronization: `wait(), join()`
+- miscellaneous controls: suspend, resume...
+- process status inquery
+
+## 4.3 How a process starts
 1. OS creates address space for the process and loads the program into the the space
 2. OS initialize the run-time stack.
 3. OS initialize I/Os including file descriptors
 4. Jump to the `main()` routine of the program
 5. Process starts
 
-### 4.4 Process States
-A process can have many states defined by an OS. A process transfers from a state to another state by schedulling or when certain event occurs in the system.
+## 4.4 Process States
+A process can have many states defined by an OS. A process transfers from a state to another state by schedulling or when certain event occurs in the system. For example:
+```
+process A (RUNNING) -> file_open() (BLOCKED) -> **file opened by the syscall handler** -> process A (RUNNING)
+```
 
-### 4.5 Data Structures
+## 4.5 Data Structures
 1. process list: all the processes
 2. register context: for context switching
 3. interrupt tables (IDT)
@@ -168,26 +173,19 @@ A process can have many states defined by an OS. A process transfers from a stat
 5. kernel code
 6. interrupt and exception handler
 
-These PCBs are normally stored in a **kernel's memory space**, a memory region exclusively created for the kernel and requires privileged access.
+These PCBs are normally stored in the **kernel memory space**, a memory region exclusively created for the kernel and it requires privileged access.
 
-## 6. Mechanism: Limited Direct Execution
-For virtualizing CPU, we employ the technique of **time-sharing the CPU**. For making the virtualization **efficient** (has a high performance), **secure** (checks the priviledge), and **flexible** (OS has the right to choose which program to run next), engineers has come up with **Limited Direct Control**.
+# 6. Mechanism: Limited Direct Execution
+For virtualizing CPU, we employ a technique called **time-sharing the CPU**. This means, the kernel needs to regain the control back once a while for schedulling other processes. At the same time, we don't want this process to be inefficient.
 
-- Direct Control: the running process executes directly on the CPU.
-- Limited: user/kernel mode, kernel stack, trap table, system call, trap instruction
+**Limited Direct Control** is a technique that allowing a process to execute directly on the CPU (using the CPU directly) without interference from the kernel. It is *limited* because the kernel takes control of the CPU back once a while regardless of the process yields or not.
 
-### 6.1 Flow of limited direct execution:
-1. OS creates and saves the location of the **trap table**, a data structure that stores information of **trap->hander** mapping, somewhere in the CPU so that when a trap activates, the CPU know where to find the corresponding handler.
-2. OS creates the process by saving `args` and register values to the processes kernel stack.
-3. OS issues **return-from-trap** instruction so that hardware can restore the register valus from the kernel stack of the processor.
-4. The process issues system call, which is really a trap instruction
-5. CPU checks the **system call number** and saves the processes register information in its kernel stack, and jumps to the handler.
-6...
+## 6.1 How to enforce access during Direct Control
+The access is enforced by introducing the **system calls**, **user mode** and **kernel mode**. While in the user mode, a process can not execute priviledged operations such as disk read/writes. Doing so will trigger an exception and the process will be terminated. The process has to issue a **system call** where a piece of the kernel code will check if the access is valid. If the access is indeed valid, the process' priviledge level will be raised to **kernel mode** and it will be allowed to perform I/O operations.
 
-### 6.2 How to implement scheudller
-#### 6.2.1 Cooperative approach: wait for system calls
-#### 6.2.2 Timer interrupt
-A timer device can be programmed to raise an interrupt every so many milliseonds; when the interrupt is raised, the currently running process is halted, and a pre-configured interrupt handler in the OS runs.
+System calls are **trap instructions** that stops normal flow of a program and jumps into the kernel context. Note that this is different from a context switch where a program gets deschedulled and another process gets schedulled by the OS. By performing a trap instruction the user program will not be deschedulled. It will only jump to the kernel pre-prepared handlers and continue executing the kernel codes there.
+
+When a trap instruction occurs, the program's state will be saved into a data structure named **trap frame** for later restoration. Then the program starts executing the code defined in the specific handler. Once it's complete, it execute a **return from trap (ret)** instruction that jumps to where the program was left off by restoring the saved trap frame.
 
 
 
