@@ -1,16 +1,15 @@
-# Basic C Programming (Chapter 1 - Chapter 10)
-## Chapter 1
-### 3.1 History of C
+# Chapter 1
+## 3.1 History of C
 - C is a bi-product of the UNIX operating system.
 - UNIX was written in assembly language. Thompson designed B language for the sake of debugging simplicity comparing to assembly language. Later the language is extended and upgraded by Ritchie and renamed it to C.
 - American National Standards Institute (ANSI) standardized the C language in 1989, and later ISO approved it in 1990. This version of C is referred to as C89 or C90.
 
-### 3.2 Characteristics of C
+## 3.2 Characteristics of C
 - C provides access to machine-level concepts (bytes and addresses).
 - C provides operations that correspond closely to a computer's built-in instructions (chdir).
 - C assumes you know what you're doing so it doesn't do error checking automatically at the most of time.
 
-### 3.3 How to write a good C program
+## 3.3 How to write a good C program
 - Lrean common pitfalls (best practicies)
 - Lrean using debuggers like GDB/Valgrind
 - Set the compiler to have more warning levels
@@ -19,7 +18,7 @@
 - Don't force the code to be concise. Shorter version is often the hardest to comprehend.
 - Stick to the standard
 
-## Chapter 2. C Fundamentals
+# Chapter 2. C Fundamentals
 - **Directives** are the statements meant to be processed by the *preprocessor*.
 - Both `printf` and `scanf` deal with *formatted* data. `printf` prints the value following the format and `scanf` gets an input that's in the expected format. For example, `scanf("%d", &i)` reads an integer from the input stream and saves it in the buffer `i`.
 - Common *cc* options are `-Wall` or `-W[code]` to produce warning message. It's recommended to be used with `-O` option. `-pendantic` rejects programs that use non-standard features. `-std=version` sets the C standard version to use. `-g` enables debugging. 
@@ -27,10 +26,10 @@
 - Old C compilers removed all the comments when compiling an C source code. However, modern compilers are required by the C standard (C99) to replace the comment line with a single space character.
 - A decimal number must end with `f` in order to be a `float` type otherwise compiler will treat it as a `double` value.
 
-## Chapter 3. Formatted Input/Output
+# Chapter 3. Formatted Input/Output
 In this chapter we deal with two built-in functions `printf` and `scanf`. They are reffered to as **formatted writing** and **formatted reading**.
 
-### 3.1 The `printf` function
+## 3.1 The `printf` function
 The `printf` function is designed to write the contents of a **string**, known as the **format string**, with values possibly inserted at specified positions in the string.
 ```
 printf(format_string, expr1, expr2, ...);

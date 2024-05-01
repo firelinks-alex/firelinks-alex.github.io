@@ -191,11 +191,14 @@ On x86 the trap frame is saved in the **kernel stack**, a per-process memory reg
 
 ## 6.2 How OS can regain control?
 If a user program is occupying the CPU that means the OS is not running at the moment. Next problem is how to let OS regain control while a user program is running so it can schedule other processes. There are two approaches we could adopt:
-1. Cooperative: User programs `yield` to OS once while, may be when issuing a system call or when an exception is occured. Later the OS (again, the system call handler code) halts the user program and and schedule another program to run.
-2. Non-cooperative: the system utilizes external **hardware devices** like a **timer device** to issue an **timer interrupt** signal once a while. When the CPU receives such a signal it jumps to execute the pre-defined handler code (again, raising the program's priviledge level to kernel mode) and halts the user program to schedulle other programs. 
+1. **Cooperative**: User programs `yield` to OS once while, may be when issuing a system call or when an exception is occured. Later the OS (again, the system call handler code) halts the user program and and schedule another program to run.
+2. **Non-cooperative**: the system utilizes external **hardware devices** like a **timer device** to issue an **timer interrupt** signal once a while. When the CPU receives such a signal it jumps to execute the pre-defined handler code (again, raising the program's priviledge level to kernel mode) and halts the user program to schedulle other programs. 
 
+# 7 - 10. Schedulling related
+(WIP)
 
-
+# 13. The Abstraction: Address Space
+Address space is an easy to use abstraction of physical memory. It is how a program sees the main memory. It starts from address `0` and grows all the way to the `2^words` address. For example, in a 32-bit processor machine, the address space ranges from `0x00000000` to `0xFFFFFFFF`. It contains all of the memory state of a running program, that includes, the **code** of the program, the **stack**, and the **heap**. 
 
 
 
