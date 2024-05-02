@@ -110,7 +110,9 @@ To implement the virtualization of the CPU the OS needs both **low level machine
 
 ## 4.1 The Abstraction: A Process
 A process is the abstraction of the **machine state** of a running program. 
-the **machine state** of a process is something the program can read or update, it consists of **address space**, **registers**, and the **files** associated with the program. The process' state alters when any of those elements changes. This also means during a **context switch**, the machine state of a process has to be stored properly for later restoration.
+the **machine state** of a process is something the program can read or update, it consists of **address space**, **registers**, and the **files** associated with the program. The process' state alters when any of those elements changes. 
+This also means during a **context switch**, the machine state of a process has to be stored properly 
+for later restoration.
 
 The information about a process is stored in a data structure like the one below:
 ```c
@@ -176,32 +178,122 @@ process A (RUNNING) -> file_open() (BLOCKED) -> **file opened by the syscall han
 These PCBs are normally stored in the **kernel memory space**, a memory region exclusively created for the kernel and it requires privileged access.
 
 # 6. Mechanism: Limited Direct Execution
-For virtualizing CPU, we employ a technique called **time-sharing the CPU**. This means, the kernel needs to regain the control back once a while for schedulling other processes. At the same time, we don't want this process to be inefficient.
+For virtualizing CPU, we employ a technique called **time-sharing the CPU**. 
+This means, the kernel needs to regain the control back once a while for schedulling other processes. 
+At the same time, we don't want this process to be inefficient.
 
-**Limited Direct Control** is a technique that allowing a process to execute directly on the CPU (using the CPU directly) without interference from the kernel. It is *limited* because the kernel takes control of the CPU back once a while regardless of the process yields or not.
+**Limited Direct Control** is a technique that allowing a process to execute directly on the CPU (using the CPU directly) 
+without an overwatching entity. 
+It is *limited* because although the process' instructions natively execute on the CPU, it has to perform a **mode switch** 
+for the priviledged instruction such as I/O operations.
 
 ## 6.1 How to enforce access during Direct Control
-The access is enforced by introducing **system calls**, **user mode** and **kernel mode**. While in the user mode, a process can not execute priviledged operations such as disk read/writes. Doing so will trigger exception and the process will be terminated. The process has to issue a **system call** and the execution will jump to a piece of kernel code that handles the system call. The handler usually first checks if the operation is valid for the process. If the access is indeed valid, the process' priviledge level will be raised to **kernel mode** where it can execute kernel instructions for disk operations.
+The access is enforced by introducing **system calls**, **user mode** and **kernel mode**. While in the user mode, 
+a process can only execute unpriviledged operations such as memory read/writes. 
+A process has to issue a **system call** to switch to the kernel mode where it can execute priviledged the kernel code.
 
-System calls is a subset of **trap instructions** that stops normal flow of a program and jumps to the kernel context. Note that this is different from a **context switch** where the operating system deschedules the running program and schedule another program. By performing a trap instruction the user program will not be deschedulled. It will only jump to one of the kernel pre-prepared handlers and continue executing the kernel codes written in the handler.
+A system call will let the execution jump to the kernel code that handles the system call. 
+The handler usually first checks if the operation is valid for the process. 
 
-However, when a trap instruction occurs, the program's state has be like during a context switch in order to restore the program's normal flow. The data structure used for saving the state is called **trap frame**. After the save completes the program will start executing the code written in the specific handler. Once it finishes the execution it will issue a **return from trap (ret)** instruction that restores the program's original flow by looking up the saved trap frame and lowers the priviledge level to the user mode at the same time. 
+System calls is a subset of **trap instructions** that stops normal flow of a program 
+and jumps to the kernel context. Note that this is different from a **context switch** 
+where the operating system **deschedules** the running program to schedule another program. 
+By performing a trap instruction the user program will not be deschedulled. 
+It will only jump to one of the kernel pre-prepared handlers and continue executing 
+the kernel codes written in the handler.
 
-On x86 the trap frame is saved in the **kernel stack**, a per-process memory region that stores **kernel stack frames**. We will come back to this later when we discuss **address space** later.
+When a process switching into kernel mode its state has to be saved (like before a context switch)
+in order to restore the program's normal flow after finishing the priviledged operations.
+The data structure used for saving the state is called **trap frame**. 
+Later the program will start executing the code written in the trap handler. 
+Once it completes it will issue a **return from trap (ret)** instruction that restores the program's original flow by 
+looking up the saved trap frame and switching the process into user mode.  
 
-## 6.2 How OS can regain control?
-If a user program is occupying the CPU that means the OS is not running at the moment. Next problem is how to let OS regain control while a user program is running so it can schedule other processes. There are two approaches we could adopt:
-1. **Cooperative**: User programs `yield` to OS once while, may be when issuing a system call or when an exception is occured. Later the OS (again, the system call handler code) halts the user program and and schedule another program to run.
-2. **Non-cooperative**: the system utilizes external **hardware devices** like a **timer device** to issue an **timer interrupt** signal once a while. When the CPU receives such a signal it jumps to execute the pre-defined handler code (again, raising the program's priviledge level to kernel mode) and halts the user program to schedulle other programs. 
+On x86 the trap frame is saved in the **kernel stack**, 
+a per-process memory region that stores **kernel stack frames**. 
+We will come back to this later when we discuss **address space** later.
+
+As you can see, an OS kernel isn't something that runs or overwatches the entire system independently.
+It's rather *a part of a user process* -- whenever it needs to run the kernel code it performs a mode switch. 
+
+## 6.2 How can OS regain control for schedulling other processes?
+Next problem is how to let OS regain control while a user program is running so it can schedule other processes. 
+There are two approaches we could adopt:
+1. **Cooperative**: Set the user programs to send `yield()` system calls once a while. 
+This system call will execute the handler code that deschedules the current user program and schedule another program to run.
+2. **Non-cooperative**: the system utilizes external **hardware devices** like a **timer device** to 
+issue interrupt signals like a **timer interrupt** periodically. 
+When the CPU receives such a signal it let the current process jumps to execute 
+the pre-defined handler code (again, raising the program's priviledge level to kernel mode) 
+that deschedules the user program to schedulle other programs. 
 
 # 7 - 10. Schedulling related
 (WIP)
 
 # 13. The Abstraction: Address Space
-Address space is an easy to use abstraction of physical memory. It is how a program sees the main memory. It starts from address `0` and grows all the way to the `2^words` address. For example, in a 32-bit processor machine, the address space ranges from `0x00000000` to `0xFFFFFFFF`. It contains all of the memory state of a running program, that includes, the **code** of the program, the **stack**, and the **heap**. 
+Address space is an easy-to-use abstraction of the physical memory. It provides both **simplicity** and **protection** to 
+the processes. An address space of a program starts from address `0` and grows all the way to the `2^words` address.  
+For example, in a 32-bit processor machine, the address space can range from `0x00000000` to `0xFFFFFFFF`. 
+These memory addresses are called **virtual memory addresses**.
 
+To a program, since it can address all the addresses in a 32-bit word system, 
+it thinks it has the exclusive use of the computer memory. However, in reality, the OS will map these virtual addresses
+in a program to the some physical memory addresses.
+Therefore the virtual address `0x12345678` in a program isn't the same as the `0x12345678` in another program.
 
+We will talk about the virtual-physical address translation in a later chapter. Here we just have to understand 
+with help of address space, a program doesn't have to know what physical memory region it's allowed to read and write.
+Every time it reads or writes to a virtual address the OS or corresponding hardware will be translating it to the 
+correct physical address.
 
+## 13.1 Address Space Segments  
+An address space contains all of the memory state of a running program, 
+that includes, the **code** of the program, the **stack**, and the **heap** segment segments. 
+In most books, the code segment is located the bottom most location starting from the virtual address 0 and 
+the stack segment is located at the top most location of the address space and grows downwards. 
+The heap is often dipicted as it's located adjacent to the code portion and grows upwards.
+Although this is a usaful model to think, it's not entirely true. You can arrange where these segments 
+are located as long as it works. However, we will continue follow the convention for the simplicity.
+
+## 13.2 The goals of designing a address space
+1. The major goal of a **virtual memory (VM)** system is **transparency**. This means, the user program should not 
+know it's utilizing a virtual memory. Instead, it should behave as it has its own private physical memory.
+2. The virtual memory system should be **efficient** in both time and space. It shoud translate the addresses in a timely 
+fashion and the it shouldn't occupy too much of the memory space.
+3. The virtual memory system should **protect processes** from one another as well as the OS itself from the processes. 
+When a process loads/writes to a memory it shouldn't affect other processes. If a process dies, it should not cause 
+other processes to crash.
+
+# 15. Mechanism: Address Translation
+Like the practices in Limited Direct Execution the OS has to maintain both efficiency and control over memory. 
+We want to make sure the virtual memory system runs light and fast as well as a process can only access 
+its own memry region. Again, like in the design of LDE, we need some supports from the hardware in order to 
+make this happen.
+
+In the basic approach we only need a couple register support from the hardware. Later, once the VM system matures 
+we will need more support from the hardware to implement **TLBs** and **page tables**. We will introduce these 
+concepts later.
+
+## 15.1 Hardware based address translation
+Or in address translation in short, we weed the OS to keep track of what memory locations are free and occupied 
+so it can resolve where in the memory the program's memory should be allocated. The hardware mechanism will help the 
+program translate a virtual memory to its corresponding physical address by interposing each memory access.
+
+## 15.2 Dynamic (Hardware-based) Relocation
+Dynamic Relocation is also known as **base-and-bound** technique. This solution needs a **base** and **bound** registers 
+support from the processor (they are in the **Memory Management Unit (MMU)** of the CPU).
+
+When the OS starts a program, it look up where in the physical memory the program can be allocated continuesly and 
+set the *base* register to that value. Since an address space is also continues, the hardware can treat any virtual 
+memory from the program as the **offset** to the base register value. Therefore, `physical_addr = base + virtual_addr`.
+
+The OS also puts the maximum physical address the process can access to the **bound** register so the hardware can 
+detact if the memory the process is trying to access is valid or not.
+
+The downside of this approach is obvious: the physical addresses needed to allocate the program has to be continues.
+It means this method only work well when the address space size is smaller than the physical address space. Otherwise 
+the memory space won't be efficient for the next program to run (maybe we have to allocate a large **swap** partition in 
+order to fit many processes.We will discuss this topic later in this guide)
 
 
 
