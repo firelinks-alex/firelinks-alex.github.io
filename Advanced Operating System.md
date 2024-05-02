@@ -92,7 +92,10 @@ ret                         popl %eip(*)
 ```
 
 ## The goal of designing a Operating System
-We want to design a operating system that is capable of taking physical resources and **virtualize** them. It handles concurrency issues so that multiple processes can run at the same time. It can store the files **persistantly**. While we are achieving these goals we also have to keep the following principles in mind:
+We want to design a operating system that is capable of taking physical resources and **virtualize** them. 
+It handles concurrency issues so that multiple processes can run at the same time. 
+It can store the files **persistantly**. 
+While we are achieving these goals we also have to keep the following principles in mind:
 1. The operating system should provide enough abstractions to make the system easy-to-use.
 2. The OS should provide high performance, or minimize the overheads.
 3. The OS should provide protection between applications, as well between the OS and applications.
@@ -102,7 +105,7 @@ We want to design a operating system that is capable of taking physical resource
 7. Portability
 
 # 2. The Abstraction: The Process (Operating Systems: Three Easy Pieces, Chapter 4)
-**Virtualizing the CPU**: to create an illusion that the CPU is always  available to a process. A basic technique to achieve this is called **time sharing** of the CPU, where it executes the instructions from a process for some time and switch to execute the instructions from other processes.
+**Virtualizing the CPU**: to create an illusion that the CPU is always available to a process. A basic technique to achieve this is called **time sharing** of the CPU, where it executes the instructions from a process for some time and switch to execute the instructions from other processes.
 
 To implement the virtualization of the CPU the OS needs both **low level machinery mechanisms** and **high level algorithms policies**.
 - Mechanisms (How to): low-level methods or protocols that implement a piece of functionality. e.g. **context switch**
@@ -175,7 +178,8 @@ process A (RUNNING) -> file_open() (BLOCKED) -> **file opened by the syscall han
 5. kernel code
 6. interrupt and exception handler
 
-These PCBs are normally stored in the **kernel memory space**, a memory region exclusively created for the kernel and it requires privileged access.
+These PCBs are normally stored in the **kernel memory space**, a memory region exclusively created 
+for the kernel and it requires privileged access.
 
 # 6. Mechanism: Limited Direct Execution
 For virtualizing CPU, we employ a technique called **time-sharing the CPU**. 
@@ -185,36 +189,38 @@ At the same time, we don't want this process to be inefficient.
 **Limited Direct Control** is a technique that allowing a process to execute directly on the CPU (using the CPU directly) 
 without an overwatching entity. 
 It is *limited* because although the process' instructions natively execute on the CPU, it has to perform a **mode switch** 
-for the priviledged instruction such as I/O operations.
+for carrying out the priviledged instruction such as I/O operations.
 
 ## 6.1 How to enforce access during Direct Control
-The access is enforced by introducing **system calls**, **user mode** and **kernel mode**. While in the user mode, 
+The access is enforced by introducing **system calls**, **user mode** and **kernel mode**. 
+While in the user mode, 
 a process can only execute unpriviledged operations such as memory read/writes. 
 A process has to issue a **system call** to switch to the kernel mode where it can execute priviledged the kernel code.
+Otherwise the CPU will raise **exception**.
 
-A system call will let the execution jump to the kernel code that handles the system call. 
-The handler usually first checks if the operation is valid for the process. 
+A system call will let the execution jump to the kernel code that handles the system call, a.k.a **system call handlers**. 
+A handler usually first checks if the operation is valid for the process.
 
 System calls is a subset of **trap instructions** that stops normal flow of a program 
 and jumps to the kernel context. Note that this is different from a **context switch** 
 where the operating system **deschedules** the running program to schedule another program. 
 By performing a trap instruction the user program will not be deschedulled. 
-It will only jump to one of the kernel pre-prepared handlers and continue executing 
-the kernel codes written in the handler.
+It will only jump to one of the kernel pre-prepared handlers and executes the kernel codes written in the handler.
 
-When a process switching into kernel mode its state has to be saved (like before a context switch)
-in order to restore the program's normal flow after finishing the priviledged operations.
-The data structure used for saving the state is called **trap frame**. 
+When a process is in kernel mode, it utilizes the **kernel space**. All the functions frames in kernel mode is 
+created on the **kernel stack**. **Every process has its own kernel stack**.
+
+When a process switches into kernel mode its state has to be saved (like before a context switch)
+in order to restore the program's normal flow after finishing the kernel operations.
+The data structure used for saving the state is called **trap frame**.
+On x86 the trap frame is saved in the **kernel stack**.
+ 
 Later the program will start executing the code written in the trap handler. 
 Once it completes it will issue a **return from trap (ret)** instruction that restores the program's original flow by 
 looking up the saved trap frame and switching the process into user mode.  
 
-On x86 the trap frame is saved in the **kernel stack**, 
-a per-process memory region that stores **kernel stack frames**. 
-We will come back to this later when we discuss **address space** later.
-
-As you can see, an OS kernel isn't something that runs or overwatches the entire system independently.
-It's rather *a part of a user process* -- whenever it needs to run the kernel code it performs a mode switch. 
+**As you can see, an OS kernel isn't something that runs independently to overwatch the entire system. Instead, 
+it's *a part of a user process* -- whenever the process needs to run a piece of kernel code it performs a mode switch**.
 
 ## 6.2 How can OS regain control for schedulling other processes?
 Next problem is how to let OS regain control while a user program is running so it can schedule other processes. 
@@ -231,7 +237,7 @@ that deschedules the user program to schedulle other programs.
 (WIP)
 
 # 13. The Abstraction: Address Space
-Address space is an easy-to-use abstraction of the physical memory. It provides both **simplicity** and **protection** to 
+**Address space** is an easy-to-use abstraction of the physical memory. It provides both **simplicity** and **protection** to 
 the processes. An address space of a program starts from address `0` and grows all the way to the `2^words` address.  
 For example, in a 32-bit processor machine, the address space can range from `0x00000000` to `0xFFFFFFFF`. 
 These memory addresses are called **virtual memory addresses**.
@@ -239,12 +245,16 @@ These memory addresses are called **virtual memory addresses**.
 To a program, since it can address all the addresses in a 32-bit word system, 
 it thinks it has the exclusive use of the computer memory. However, in reality, the OS will map these virtual addresses
 in a program to the some physical memory addresses.
-Therefore the virtual address `0x12345678` in a program isn't the same as the `0x12345678` in another program.
+This means the virtual address `0x12345678` in a program isn't the same as the address `0x12345678` in another program.
 
 We will talk about the virtual-physical address translation in a later chapter. Here we just have to understand 
 with help of address space, a program doesn't have to know what physical memory region it's allowed to read and write.
 Every time it reads or writes to a virtual address the OS or corresponding hardware will be translating it to the 
 correct physical address.
+
+The logical unit that manages functionalities like allocating address spaces, 
+translating virtual memory addresses, validating virtual address etc. are all managed by 
+the **virtual memory (VM)** system.
 
 ## 13.1 Address Space Segments  
 An address space contains all of the memory state of a running program, 
@@ -257,22 +267,24 @@ are located as long as it works. However, we will continue follow the convention
 
 ## 13.2 The goals of designing a address space
 1. The major goal of a **virtual memory (VM)** system is **transparency**. This means, the user program should not 
-know it's utilizing a virtual memory. Instead, it should behave as it has its own private physical memory.
+know it's using a virtual memory. Instead, it should behave as it has its own private physical memory.
 2. The virtual memory system should be **efficient** in both time and space. It shoud translate the addresses in a timely 
-fashion and the it shouldn't occupy too much of the memory space.
-3. The virtual memory system should **protect processes** from one another as well as the OS itself from the processes. 
-When a process loads/writes to a memory it shouldn't affect other processes. If a process dies, it should not cause 
-other processes to crash.
+fashion and it shouldn't occupy too much of the memory space for doing so.
+3. The virtual memory system should **protect processes** from one another, as well as the OS itself from the processes. 
+This means when a process loads/writes to a memory it shouldn't affect other processes. 
+If a process dies, it should not cause other processes to crash.
 
 # 15. Mechanism: Address Translation
-Like the practices in Limited Direct Execution the OS has to maintain both efficiency and control over memory. 
-We want to make sure the virtual memory system runs light and fast as well as a process can only access 
-its own memry region. Again, like in the design of LDE, we need some supports from the hardware in order to 
-make this happen.
+Like the OS principles we mentioned in LDE the OS has to maintain both efficiency and control over memory. 
+We want to make sure the virtual memory system is lightweight and fast to execute. 
+On top of that, We have to make sure a process can only access its own memry region. 
+In order to make these happen, we are going to ask for some supports from the hardware.
 
-In the basic approach we only need a couple register support from the hardware. Later, once the VM system matures 
-we will need more support from the hardware to implement **TLBs** and **page tables**. We will introduce these 
-concepts later.
+
+In the next couple basic approaches we only need a couple of extra registers from the hardware. 
+Later, once our VM system design matures we will ask for more support from the hardware so we can implement 
+advanced concepts like **TLBs** and **page tables**. 
+We will introduce these concepts once we get there.
 
 ## 15.1 Hardware based address translation
 Or in address translation in short, we weed the OS to keep track of what memory locations are free and occupied 
