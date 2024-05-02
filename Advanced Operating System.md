@@ -280,7 +280,6 @@ We want to make sure the virtual memory system is lightweight and fast to execut
 On top of that, We have to make sure a process can only access its own memry region. 
 In order to make these happen, we are going to ask for some supports from the hardware.
 
-
 In the next couple basic approaches we only need a couple of extra registers from the hardware. 
 Later, once our VM system design matures we will ask for more support from the hardware so we can implement 
 advanced concepts like **TLBs** and **page tables**. 
@@ -288,24 +287,30 @@ We will introduce these concepts once we get there.
 
 ## 15.1 Hardware based address translation
 Or in address translation in short, we weed the OS to keep track of what memory locations are free and occupied 
-so it can resolve where in the memory the program's memory should be allocated. The hardware mechanism will help the 
-program translate a virtual memory to its corresponding physical address by interposing each memory access.
+so it can resolve where in the memory a program's memory should be allocated. 
+This information could be kept in a list structure or a bitmap (google it if you don't know what they are).
+
+Later, when the process comes in to life, the hardware mechanism we are going to introduce will help translate 
+a virtual memory to the corresponding physical address by interposing each memory access.
 
 ## 15.2 Dynamic (Hardware-based) Relocation
-Dynamic Relocation is also known as **base-and-bound** technique. This solution needs a **base** and **bound** registers 
-support from the processor (they are in the **Memory Management Unit (MMU)** of the CPU).
+Dynamic Relocation is also known as the **base-and-bound** technique. 
+This solution is quite naive but it was indeed used in the past (in 1950's).
+First, we need a **base** and **bound**, two extra registers, support from the processor.
+(they are in the **Memory Management Unit (MMU)** of the CPU).
 
-When the OS starts a program, it look up where in the physical memory the program can be allocated continuesly and 
-set the *base* register to that value. Since an address space is also continues, the hardware can treat any virtual 
-memory from the program as the **offset** to the base register value. Therefore, `physical_addr = base + virtual_addr`.
+When the OS starts a program, it looks up where in the physical memory the program can be allocated *continuesly* and 
+set the *base* register to that physical address value. 
+Since an address space is also continues, the hardware can treat any virtual address from the program as 
+the **offset** to the base register value. Therefore, `physical_addr = base + virtual_addr`.
 
 The OS also puts the maximum physical address the process can access to the **bound** register so the hardware can 
-detact if the memory the process is trying to access is valid or not.
+detact if the memory address that the process is trying to access is valid or not.
 
-The downside of this approach is obvious: the physical addresses needed to allocate the program has to be continues.
-It means this method only work well when the address space size is smaller than the physical address space. Otherwise 
-the memory space won't be efficient for the next program to run (maybe we have to allocate a large **swap** partition in 
-order to fit many processes.We will discuss this topic later in this guide)
+The downside of this approach is obvious: the physical addresses that are needed to allocate the program has to be continoues.
+It means this method only works well when the address space is smaller than the physical address space. 
+Otherwise, the memory space won't be sufficient to run the next process (so we have to allocate a large **swap** partition in 
+order to fit many processes. We will introduce the swap concept later in this guide).
 
 
 
