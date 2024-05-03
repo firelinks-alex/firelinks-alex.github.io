@@ -226,6 +226,13 @@ popping the saved trap frame from the kernel stack to the user stack, and points
 **From the details mentioned above you can see that an OS kernel isn't something that runs independently to overwatch the entire system. 
 Instead, it's *a part of a user process* -- whenever the process needs to run a piece of kernel code it performs a mode switch**.
 
+> As a side note, imagine this scenario - Instead of direct execution on x86 hardware, we had the OS as an eternally
+> running process on the processor and the OS emulated processes on top. In this case, to the hardware it would appear as 
+> if the OS was the only running process (sounds familiar?). The OS would internally switch between user processes to 
+> ensure fairness i.e., switching in software. Also for the user process the OS would seem no different than the actual 
+> x86 hardware i.e., the OS gives the exact same feel of running machine level instructions.
+> What do you think this OS should be called?
+
 ## 6.2 How can OS regain control for schedulling other processes?
 Next problem is how to let OS regain control while a user program is running so it can schedule other processes. 
 There are two approaches we could adopt:
