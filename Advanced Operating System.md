@@ -518,10 +518,9 @@ The abstract model used to describes a type of processor is **instruction set ar
 - the processor state
 - Instruction format, and the effect each of these insturctions will have on the processor's state.
 
-```
-Programming Model: あるプログラミング言語あるいはモジュール、ライブラリー、ランタイムにおいて、あるプログラミング要素に対するシステムの振舞い方である。これは後程アプリケーション（出来上がったモノ）とその実現方法（作り方）との繋がりの役割を果たす。
-またプログラミングモデルを勉強するより、あるプログラミング要素に対してシステムは具体的にどう反応するかを判明することができる。
-```
+> Programming Model: あるプログラミング言語あるいはモジュール、ライブラリー、ランタイムにおいて、あるプログラミング要素に対するシステムの振舞い方である。
+> これは後程アプリケーション（出来上がったモノ）とその実現方法（作り方）との繋がりの役割を果たす。
+> またプログラミングモデルを勉強するより、あるプログラミング要素に対してシステムは具体的にどう反応するかを判明することができる。
 
 These items are visible in assembly code but are hidden from C programmers:
 - *program counter* or "PC" is called `%eip` in IA32. It indicates the next instruction to be executed
