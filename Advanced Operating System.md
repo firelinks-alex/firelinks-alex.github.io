@@ -188,39 +188,43 @@ At the same time, we don't want this process to be inefficient.
 
 **Limited Direct Control** is a technique that allowing a process to execute directly on the CPU (using the CPU directly) 
 without an overwatching entity. 
-It is *limited* because although the process' instructions natively execute on the CPU, it has to perform a **mode switch** 
-for carrying out the priviledged instruction such as I/O operations.
+It is *limited* because although the process' instructions are natively executed on the CPU, 
+it has to perform a **mode switch** 
+for carrying out the priviledged instruction such as the operations that involves interacting with a device.
 
 ## 6.1 How to enforce access during Direct Control
 The access is enforced by introducing **system calls**, **user mode** and **kernel mode**. 
 While in the user mode, 
 a process can only execute unpriviledged operations such as memory read/writes. 
-A process has to issue a **system call** to switch to the kernel mode where it can execute priviledged the kernel code.
-Otherwise the CPU will raise **exception**.
+A process has to issue a **system call** to switch to kernel mode where it can execute priviledged 
+operations written inside the kernel code. Otherwise, the CPU will raise **exception**.
 
-A system call will let the execution jump to the kernel code that handles the system call, a.k.a **system call handlers**. 
-A handler usually first checks if the operation is valid for the process.
+A system call will frist save the current executing program's state so it can restore the program normal flow later.
+Then the execution jumps to the kernel code that handles the system call, a.k.a **system call handlers**, at the same time 
+raising the program's mode to **kernel mode**.
+A handler usually first checks if the operation is valid or not.
 
-System calls is a subset of **trap instructions** that stops normal flow of a program 
+System calls is a subset of **trap instructions** that stops the normal flow of a program 
 and jumps to the kernel context. Note that this is different from a **context switch** 
 where the operating system **deschedules** the running program to schedule another program. 
 By performing a trap instruction the user program will not be deschedulled. 
 It will only jump to one of the kernel pre-prepared handlers and executes the kernel codes written in the handler.
 
-When a process is in kernel mode, it utilizes the **kernel space**. All the functions frames in kernel mode is 
-created on the **kernel stack**. **Every process has its own kernel stack**.
+When a process is in kernel mode, it utilizes the **kernel space**. All the functions calls happen in kernel mode is 
+created on the **kernel stack** instead of the user stack. As you guessed, **Every process has its own kernel stack** to 
+keep track of its kernel instructions.
 
-When a process switches into kernel mode its state has to be saved (like before a context switch)
+Like we said above, when a process switches into kernel mode its state has to be saved (like before a context switch)
 in order to restore the program's normal flow after finishing the kernel operations.
-The data structure used for saving the state is called **trap frame**.
-On x86 the trap frame is saved in the **kernel stack**.
+The data structure saving the program's state is called a **trap frame**.
+On x86 a trap frame is saved in the **kernel stack**.
  
 Later the program will start executing the code written in the trap handler. 
 Once it completes it will issue a **return from trap (ret)** instruction that restores the program's original flow by 
-looking up the saved trap frame and switching the process into user mode.  
+popping the saved trap frame from the kernel stack to the user stack, and points the instruction pointer to the user stack.  
 
-**As you can see, an OS kernel isn't something that runs independently to overwatch the entire system. Instead, 
-it's *a part of a user process* -- whenever the process needs to run a piece of kernel code it performs a mode switch**.
+**From the details mentioned above you can see that an OS kernel isn't something that runs independently to overwatch the entire system. 
+Instead, it's *a part of a user process* -- whenever the process needs to run a piece of kernel code it performs a mode switch**.
 
 ## 6.2 How can OS regain control for schedulling other processes?
 Next problem is how to let OS regain control while a user program is running so it can schedule other processes. 
@@ -229,9 +233,9 @@ There are two approaches we could adopt:
 This system call will execute the handler code that deschedules the current user program and schedule another program to run.
 2. **Non-cooperative**: the system utilizes external **hardware devices** like a **timer device** to 
 issue interrupt signals like a **timer interrupt** periodically. 
-When the CPU receives such a signal it let the current process jumps to execute 
-the pre-defined handler code (again, raising the program's priviledge level to kernel mode) 
-that deschedules the user program to schedulle other programs. 
+When the CPU receives such a signal the current process stops execution (again, by saving the program's state) 
+and the CPU will execute the pre-defined handler code (again, raising the program's priviledge level to kernel mode) 
+that schedulles other programs. 
 
 # 7 - 10. Schedulling related
 (WIP)
