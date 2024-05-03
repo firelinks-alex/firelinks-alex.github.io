@@ -323,6 +323,66 @@ It means this method only works well when the address space is smaller than the 
 Otherwise, the memory space won't be sufficient to run the next process (so we have to allocate a large **swap** partition in 
 order to fit many processes. We will introduce the swap concept later in this guide).
 
+# Storage Virtualization
+- CPU
+- Caches
+- Regsiters
+- Main memory
+- Hard disk
+- Network card
+- Display
+
+History of storage devices:
+1. Punch cards: inputs to your computer
+2. Magnetic tapes: like casette tapes
+3. Magnetic hard drives
+4. Solid state drives: flash based, NANDi, capacitance, fewer moving parts 20micro seconds/100 microseconds
+5. Persistant Memory: 100-500 nano seconds latency. (intel data center persistant memory)
+
+## Abstraction: Files
+Files: linear sequence of bytes
+ 
+File system of the operating system provides this abstraction between the programs and the devices
+
+- open (path) returns fd (the handle to the file): assigning a number to the file and use that number instead.
+- read (fd, buffer, offset, size)
+- write ()
+- seek (fd, location): puts a pointer at the 100 bytes of the file. It can work togethe with read()/write()
+
+- directories
+- renaming
+- operations above
+- high preformance
+- strong reliability
+- where on the device to store
+
+
+## Polling, Interrupts, and DMA
+Chapter 36
+problem with polling: wastes CPU. you run different process while the divice is busy. We introduce interrupt for the 
+devices that when the device is free it sends the signal to the CPU so it would react to the signal and start interacting 
+with the device.
+
+Disadvantage of interrupts: cpu has to wait for the process to finish the work before looking at the interrupt. Higher 
+latency
+
+Not suitable for network cards where comes a lot of packages
+
+Interrupt masking, I am not going to look at these interrupts for some amount of time, let's say 10ms. I am going to 
+look at these interrupts all together. The hardware batches the interrupts and sends them to the CPU as all together.
+It increases throughput but it increases latency because you're looking at some later point of time.
+
+## DMA and Device Drivers
+```
+CPU -
+    |
+    -- Device [registers]
+```
+**Direct memory access**, CPU only gets involved in the setup phase. The device directly transfers data later based on 
+the setup data without others help
+
+IDE disk device driver: you need a device driver to talk to the device
+LBA: logical block address
 
 
 
