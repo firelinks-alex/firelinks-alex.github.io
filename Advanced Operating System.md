@@ -384,8 +384,214 @@ the setup data without others help
 IDE disk device driver: you need a device driver to talk to the device
 LBA: logical block address
 
+## Magnetic Tape: mostly used for archiving
+- Can only read/write sequentially
+- Read from start until end
+- You can "rewind" back to the start
+- Reliasble, will last 30 years
+- 9-track tape came out in 1964, retired in 2002
+
+Amazon Glacier
+
+## Magnetic Hard Drives
+- Allows sequential and **random access**
+- Sequential access 100x faster than random access
+- Maximum capacity: 14TB
+- BW: 210 MB/s
+- tracks vs sectors
+- Rotation speed: 7200 RPM
+- Time = Rotation time + seek time (time to go to other track) + transfer time ( time to transfer the data back to user)
+- seek time : usually 2ms to 10ms
+
+## Solid State Drives
+- NAND gate ssd: Cheapter. You can only read/write units of pages, low latency
+- NOR gate ssd: allows finer grain access. But with higher latency, more expensive
 
 
+- Flash package: Die > Plane > Block
+- Unit of read: pages
+- Unit of write: pages
+- Unit of erase: blocks, 16KBs~512KBS
+- pages can not be rewritten in place, they must be erased first.
+- no in-place update
+- some flash devices also provide an out-of-band (OOB) area with each page
+
+SSD worst workload :small random writes because it triggers an erasure, and this erasure is going to be bigger block size which means that all the
+data in this page, or on this block has to be moved to a different block, it's a huge deal.
+
+To counter this, the log based file system works better. Like ext4.
+
+For each flash cell there are limited numbers of times it can be erased
+You can't keep writing to it for 10 years
+Big companies have 3 years of replacement cycle
+
+Write is much slower than the read
+
+Flash translation layer (FTL):
+Because there are no in-place writes, need a way to map logical address (logical sector 100) to physical address (physical sector 256).
+A write requires remmaping a logical page to a new physical page. 
+- old physical pages need to be garbage collected.
+- Wear levelling: FTL chooses new physical pages carefully to spread writes among different pages, to wear them out equally.
+- FTL handles parallel IO operation and error handling. 
+- (where to place the FTL? Device or host).
+
+# ext4 code walkthrough
+Linux Version 5.1
+- Tools
+    - make cscope
+    - tags
+
+journaling: allowing atomic operations/journaling transaction
+
+- FMODE_NOWAIT: if not finished return
+
+How a write a file works:
+
+Appliccation -> write a file -> fwrite() -> glibc -> write() *system call -> Linux kernel
+
+write() -> VFS (virtual file system) Layer -> ext4
+
+# Crash Recovery
+If the user lose power for some reason and the file system may be in the middle of an update operation. 
+you want to make sure you're still able to access the data.
+
+Reason: an update operation may touch mutliple blocks (mutliple inodes) on the storage.
+
+Root cause: no multi-block atomic primitive in storage.
+
+Inode leakage : inode was allocated but no one can access it. 
+
+double allocation: where an inode is use by two files
+
+Atomic updates: all updates within a transaction are present, or non are present
+(this is a bit different from database transactions, no need for isolaiton).
+
+- crash consistent file system: a file system which preserves its invariants (such as no block is double allocated)
+in the presence of crashes
+- crash consistency usually protects internal file system data structure (bitmap/inodes) and invarients. It doesn't protect data.
+- A file system that simply lost all user data or replaced them with zeros on crash is a crash-consistent
+- users typically care about **data** loss and corruption, not whether the file system is internally consistent
+- crash consistency care about the file system
+
+## Logging and shadow paging (crash consistency)
+Main idea: we don't update the data directly.
+Instead, we keep another copy of the original file and modify either the copy or the original.
+Later we swap the updated one with the original file (this is the most crutial step)
+- both logging and shadow paging are variants of this idea
+
+### Logging
+- First write the data to a log.    
+- Writes to log can occur as multiple operations
+- Once all data is in the log, write a special COMMIT back.
+- Once the commit block is written to the storage, the transaction is guaranteed to be atomically performed
+
+### Shadow paging
+all information is organized as a tree, 
+
+Shadow paging is a technique used in file systems to manage data consistently by creating snapshots or copies of the file system's index 
+or metadata before any changes are made. When a change occurs, it is initially written to a new, separate version of the page (the shadow page), 
+rather than directly modifying the original page. 
+This process allows the system to preserve the original data until the new changes are fully written and confirmed to be error-free. 
+If a system failure occurs during the update, the file system can revert to the original pages, 
+ensuring data integrity. 
+Once the update is successfully completed, the system switches to the updated shadow pages, making them the new active pages. 
+This method is particularly useful for protecting against data corruption and system crashes.  
+
+## hardware supports(primitives) for crash recovery
+1. cache: Storages usually have cash region (SRAM/DRAM), it's small but fast 64kbs-128mbs, cache is volatile.
+2. queue: file system can send multiple requests to the device and they can be queued up in the queue. Transaction body->transaction commit  
+
+
+File system -> request device -> hits the cache. Maybe first written to cache and later saved to the persistent media.
+if there is a read request comes for the same block just written in cache, it reads directly from cache
+
+we need to have a way to control 
+1. when a data item is written from the cache to the non-volatile persistent media.
+2. being able to control the order in which the things move from the cache. queue: we want the transaction body first and transaction commit later 
+
+
+Hardware supports we need:
+1. flush: write a thing to a storage. 1 -> flush, then 2 -> flush. Problem: coarse scale flush.
+2. fence: 1 -> fence 2 : we want 1 to be written before 2: we are only controlling the order. At some later point of time the device will commit 
+the result. let the device deside when they are written. (hard drive doesn't have this). (persistent memory has them both)
+
+## btrfs
+Everything is a tree. 
+
+this could hurt the performance. easy to make snapshots, every quick and cheap. 
+
+we have to copy everything, leaf to root. 
+
+Shadow paging suffers from The wandering tree problem: A change at the lowest level of tree propagates all the way up to the top of the tree.
+
+Any update requires O (high of tree) changes. And allocating and writing these nodes are expensive.
+
+btrfs handles this by writing new updates to a **log**, instead of changing the three in-place, and then batching updates to the tree
+ when the batch reaches certain size.
+
+In btrfs, the logs are also trees. so the problem still have the wandering tree problem for logs
+
+In a good system design, you're not doing lot of expensive operations in a critical part. If you can do the expensive operations beforehand, 
+like pre-allocation, that will increase the performance significatly. And this is used in btrfs as well.
+
+
+Another problem with shadow paging: 
+- Allocating and writing nodes is expensive.
+- copy-on-write destroys locality (closer is faster): data which was close to each other on storage can be far apart after an update
+- shadow paging requires garbage collection: unreferenced nodes need to be deleted (lots of deallocation if pre-allocated a lot).
+this could hurt the performance if kicked in at a wrong time
+
+In logging on the other hand, you don't change the location, you simply override data (more writes though)
+
+
+## Shadow paging vs logging
+- logging results in writing data twice: once in log and once in place. while copy-on-write results in only once place
+- logging preserves data locality since data is updated in-place, while copy-on-write moves data around.
+- logging does not require garbage collection
+- logging is better for subsequent reads, while copy on write might perform better for writes.
+
+# Persistent Memory
+It's very much like a DRAM, directly accessible by CPU. You don't need device drivers. 
+READ unit for SSD is 4Kb, you have to read whole unit. In persistent memory though a single cache line is 64 bytes. This allows small random bytes
+46 terabytes in a single node.
+
+In DRAM you store data in a DRAM cell and have to regularly give it electricity to refresh the cell to remember the data. TCO : lots of them 
+are energy bills. In persistent memory you don't have to send it electricity to maintain the information. 
+
+Limitations:
+- the bandwidth isn't as fast as DRAMs espacially in multi threaded writes
+- For ramdom read/writes, as granularity goes up the read increases but write stays almost the same after 256B access size
+
+
+# Designing Storage systems for persistent memory
+Persistent memory controller has reserved capacity to finish the write operation. Therefore, once the data reaches the controller, we can forget
+about it. And it will never be lost. So our main goal is getting our data to the controller. 
+
+- MOVNT write to the controller cache 
+- CLFLUSH: move the data from cache to the controller. This will knock out the cache.
+- CLWP: cache line write back. It will write to the controller without knocking out the cache
+
+
+Direct access: CPU - PMM  , map the persistent memory to the programs address space. This is called memory mapping.
+No page cache in between. 
+
+DAX: direct access excitement: instead of finding in the DRAM page cache, it will find on persistent memory device that what page contains this data 
+And then will go into that page on the device. There is no DRAM involved. no need for fsync().
+
+Persistent memory has transactions get-go.
+
+
+## NOVA - UCSD
+File systems for persistent memory: NOVA, ext4-DAX, XFS-DAX
+
+it's a example log based file system (LFS). It has a big journal for the entire file system.
+
+ext4: let's say you have a file and you rename some other file, all of these things are going into a single file system level log -- Journal
+- gain advantage of big sequential writes to the log.
+
+NOVA: per-inode logging. high performance + strong atomicity, POXIS compliant.
+
+persistent the way of stroing data: by changing the phase of the media. Certan phase is 0 and another is 1
 
 # Computer Systems Book:
 - Chapter 1: A fast introduction of the computer systems by tracing a simple "hello world" program.
