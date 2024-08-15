@@ -104,6 +104,9 @@
         <mxCell id="XTTomyIDRFA8E6qx83rM-33" value="&lt;font color=&quot;#3399ff&quot;&gt;Pstock&lt;/font&gt;&amp;nbsp;&amp;lt;&amp;nbsp;&lt;font color=&quot;#ff66ff&quot;&gt;&lt;b&gt;Pstrike&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="217" y="451" width="123" height="30" as="geometry" />
         </mxCell>
+        <mxCell id="XTTomyIDRFA8E6qx83rM-34" value="Intrinsic value = $48 - $50 = -2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="194" y="470" width="167" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
