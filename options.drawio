@@ -17,10 +17,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-3" value="you can &lt;b&gt;buy&lt;/b&gt;&lt;div&gt;at the strike&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-3" value="you can &lt;b&gt;buy&lt;/b&gt;&lt;div&gt;at the strike&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
           <mxGeometry x="154" y="84" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-4" value="you can &lt;b&gt;sell&lt;/b&gt;&lt;div&gt;at the strike&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-4" value="you can &lt;b&gt;sell&lt;/b&gt;&lt;div&gt;at the strike&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="577" y="84" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="XTTomyIDRFA8E6qx83rM-5" value="you want to&lt;div&gt;buy &lt;b&gt;cheap&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
