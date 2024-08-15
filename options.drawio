@@ -33,7 +33,7 @@
         </mxCell>
         <mxCell id="XTTomyIDRFA8E6qx83rM-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="XTTomyIDRFA8E6qx83rM-7">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="763.2068965517242" y="500.8275862068966" as="targetPoint" />
+            <mxPoint x="763" y="495" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XTTomyIDRFA8E6qx83rM-7" value="you want to&lt;div&gt;&lt;b&gt;sell&lt;/b&gt;&amp;nbsp;&lt;b&gt;high&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
