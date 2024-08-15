@@ -47,10 +47,10 @@
             <mxPoint x="-211.1034482758621" y="95.24137931034488" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-10" value="&lt;font color=&quot;#ff66ff&quot;&gt;strike&lt;/font&gt;: $58" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="XTTomyIDRFA8E6qx83rM-11">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-10" value="&lt;font color=&quot;#ff66ff&quot;&gt;&lt;b&gt;strike&lt;/b&gt;&lt;/font&gt;: $58" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="XTTomyIDRFA8E6qx83rM-11">
           <mxGeometry x="10" y="80" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-13" value="&lt;font color=&quot;#3399ff&quot;&gt;Pstock&lt;/font&gt; &amp;gt; &lt;font color=&quot;#ff66ff&quot;&gt;Pstrike&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-13" value="&lt;font color=&quot;#3399ff&quot;&gt;Pstock&lt;/font&gt; &amp;gt; &lt;font color=&quot;#ff66ff&quot;&gt;&lt;b&gt;Pstrike&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="216" y="304" width="123" height="30" as="geometry" />
         </mxCell>
         <mxCell id="XTTomyIDRFA8E6qx83rM-15" value="IMO" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
