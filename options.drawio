@@ -23,21 +23,11 @@
         <mxCell id="XTTomyIDRFA8E6qx83rM-4" value="you can &lt;b&gt;sell&lt;/b&gt;&lt;div&gt;at the strike&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="577" y="84" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XTTomyIDRFA8E6qx83rM-5">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="93.99999999999989" y="503.58620689655174" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-5" value="you want to&lt;div&gt;&lt;b&gt;buy&lt;/b&gt; &lt;b&gt;cheap&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-5" value="you want to&lt;div&gt;buy &lt;b&gt;cheap&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;option&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="34" y="337" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="XTTomyIDRFA8E6qx83rM-7">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="763" y="495" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-7" value="you want to&lt;div&gt;&lt;b&gt;sell&lt;/b&gt;&amp;nbsp;&lt;b&gt;high&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="697" y="321" width="120" height="80" as="geometry" />
+        <mxCell id="XTTomyIDRFA8E6qx83rM-7" value="you want to&lt;div&gt;&lt;b&gt;buy expensive strike&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="696" y="321" width="114" height="97" as="geometry" />
         </mxCell>
         <mxCell id="XTTomyIDRFA8E6qx83rM-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.625;entryY=0.2;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="XTTomyIDRFA8E6qx83rM-4" target="XTTomyIDRFA8E6qx83rM-7">
           <mxGeometry relative="1" as="geometry">
