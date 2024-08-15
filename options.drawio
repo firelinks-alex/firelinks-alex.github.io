@@ -23,7 +23,7 @@
         <mxCell id="XTTomyIDRFA8E6qx83rM-4" value="you can &lt;b&gt;sell&lt;/b&gt;&lt;div&gt;at the strike&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="577" y="84" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-5" value="you want to&lt;div&gt;buy &lt;b&gt;cheap&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;option&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-5" value="you want to&lt;div&gt;buy &lt;b&gt;cheap&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;strike&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="34" y="337" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="XTTomyIDRFA8E6qx83rM-7" value="you want to&lt;div&gt;&lt;b&gt;buy expensive strike&lt;/b&gt;&lt;/div&gt;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
