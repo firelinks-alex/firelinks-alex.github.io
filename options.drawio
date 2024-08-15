@@ -96,10 +96,10 @@
         <mxCell id="XTTomyIDRFA8E6qx83rM-23" value="OTM" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontStyle=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
           <mxGeometry x="617" y="297" width="34" height="34" as="geometry" />
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-24" value="Intrinsic value = $60 - $58 = 2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-24" value="Intrinsic value = $&lt;font color=&quot;#3399ff&quot;&gt;60&lt;/font&gt; - $&lt;font color=&quot;#ff66ff&quot;&gt;58&lt;/font&gt; = 2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="195" y="328" width="167" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="XTTomyIDRFA8E6qx83rM-25" value="Intrinsic value = $58 - $60 = -2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="XTTomyIDRFA8E6qx83rM-25" value="Intrinsic value = $&lt;font color=&quot;#ff66ff&quot;&gt;58&lt;/font&gt; - $&lt;font color=&quot;#3399ff&quot;&gt;60&lt;/font&gt; = -2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="489" y="328" width="167" height="30" as="geometry" />
         </mxCell>
         <mxCell id="XTTomyIDRFA8E6qx83rM-28" value="&lt;font color=&quot;#3399ff&quot;&gt;Pstock&lt;/font&gt;&amp;nbsp;&amp;lt;&amp;nbsp;&lt;font color=&quot;#ff66ff&quot;&gt;&lt;b&gt;Pstrike&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
