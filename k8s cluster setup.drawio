@@ -22,6 +22,9 @@
         <mxCell id="hgjOSzsFx60487FXQjRU-11" value="Programs:&lt;div&gt;1. kubectl&lt;/div&gt;&lt;div&gt;2. wget&lt;/div&gt;&lt;div&gt;3. curl&lt;/div&gt;&lt;div&gt;4. openssl&lt;/div&gt;&lt;div&gt;5. git&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;strokeWidth=1;fontSize=18;" vertex="1" parent="1">
           <mxGeometry x="-153" y="59" width="110" height="157" as="geometry" />
         </mxCell>
+        <mxCell id="hgjOSzsFx60487FXQjRU-12" value="&lt;div style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;1. kubectl&lt;/div&gt;&lt;br class=&quot;Apple-interchange-newline&quot;&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="48" y="174" width="105" height="58" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
