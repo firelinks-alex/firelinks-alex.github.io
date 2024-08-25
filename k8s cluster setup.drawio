@@ -130,6 +130,12 @@
         <mxCell id="UgedQl98Wn_l8It3PkKg-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="UgedQl98Wn_l8It3PkKg-3" target="UgedQl98Wn_l8It3PkKg-14">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="UgedQl98Wn_l8It3PkKg-18" value="subnet1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="704" y="-343" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UgedQl98Wn_l8It3PkKg-19" value="subnet2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1186" y="-353" width="60" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
