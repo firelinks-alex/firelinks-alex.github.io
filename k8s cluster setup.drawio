@@ -109,6 +109,12 @@
         <mxCell id="UgedQl98Wn_l8It3PkKg-8" value="" style="triangle;html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="UgedQl98Wn_l8It3PkKg-7">
           <mxGeometry x="19" y="13" width="16" height="22" as="geometry" />
         </mxCell>
+        <mxCell id="UgedQl98Wn_l8It3PkKg-11" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;10.200.0.0/24&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="328" y="539" width="124" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="UgedQl98Wn_l8It3PkKg-12" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;10.200.0.1/24&lt;/font&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="767" y="539" width="124" height="32" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
